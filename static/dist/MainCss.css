@@ -14,6 +14,7 @@
     --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-purple-600: oklch(55.8% 0.288 302.321);
+    --color-stone-50: oklch(98.5% 0.001 106.423);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-5xl: 64rem;
@@ -196,6 +197,9 @@
   .ml-6 {
     margin-left: calc(var(--spacing) * 6);
   }
+  .flex {
+    display: flex;
+  }
   .h-dvh {
     height: 100dvh;
   }
@@ -213,6 +217,12 @@
   }
   .list-disc {
     list-style-type: disc;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
   }
   .space-y-1 {
     :where(& > :not(:last-child)) {
@@ -292,6 +302,9 @@
   }
   .bg-sky-300 {
     background-color: var(--color-sky-300);
+  }
+  .bg-stone-50 {
+    background-color: var(--color-stone-50);
   }
   .bg-gradient-to-r {
     --tw-gradient-position: to right in oklab;
