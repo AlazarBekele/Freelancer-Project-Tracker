@@ -1,12 +1,23 @@
 {% load static %}
 
-<div class="w-full h-dvh bg-stone-50 flex items-center justify-center">
+<div class="w-full h-dvh bg-stone-50 flex items-center justify-center grid grid-cols-2 gap-4">
 
     {% for Wel in welcomeIMG %}
 
-        <div class="">
+        <div class="flex items-center justify-center">
 
-            <img style="width: 500px;" src="{{ Wel.IMG.url }}" alt="">
+            <img class="w-full" src="{{ Wel.IMG.url }}" alt="">
+
+        </div>
+
+        <div class="flex items-center justify-center">
+
+            <div>
+
+                <button class="bg-blue-500 text-white px-8 py-2 rounded-md">Login</button>
+                <p>Don't have an account <span><a href="#">Create account</a></span></p>
+
+            </div>
 
         </div>
 
