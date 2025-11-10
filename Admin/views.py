@@ -1,7 +1,18 @@
 from django.shortcuts import render
+from .models import (
+    Welcome
+)
 
 # Create your views here.
 
 def index (request):
 
-    return render (request, 'index.html')
+    WelIMG = Welcome.objects.all()
+
+    context = {
+
+        'welcomeIMG' : WelIMG
+
+    }
+
+    return render (request, 'index.html', context=context)
