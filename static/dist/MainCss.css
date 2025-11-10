@@ -503,6 +503,9 @@
   .text-gray-500 {
     color: var(--color-gray-500);
   }
+  .text-sky-300 {
+    color: var(--color-sky-300);
+  }
   .text-sky-500 {
     color: var(--color-sky-500);
   }
@@ -568,6 +571,12 @@
   .placeholder\:italic {
     &::placeholder {
       font-style: italic;
+    }
+  }
+  .focus\:outline-none {
+    &:focus {
+      --tw-outline-style: none;
+      outline-style: none;
     }
   }
 }
