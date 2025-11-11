@@ -9,6 +9,7 @@
       "Courier New", monospace;
     --color-lime-50: oklch(98.6% 0.031 120.757);
     --color-lime-100: oklch(96.7% 0.067 122.328);
+    --color-lime-200: oklch(93.8% 0.127 124.321);
     --color-lime-300: oklch(89.7% 0.196 126.665);
     --color-lime-500: oklch(76.8% 0.233 130.85);
     --color-lime-600: oklch(64.8% 0.2 131.684);
@@ -485,6 +486,27 @@
   }
   .bg-lime-50 {
     background-color: var(--color-lime-50);
+  }
+  .bg-lime-200 {
+    background-color: var(--color-lime-200);
+  }
+  .bg-lime-200\/10 {
+    background-color: color-mix(in srgb, oklch(93.8% 0.127 124.321) 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-lime-200) 10%, transparent);
+    }
+  }
+  .bg-lime-200\/20 {
+    background-color: color-mix(in srgb, oklch(93.8% 0.127 124.321) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-lime-200) 20%, transparent);
+    }
+  }
+  .bg-lime-200\/40 {
+    background-color: color-mix(in srgb, oklch(93.8% 0.127 124.321) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-lime-200) 40%, transparent);
+    }
   }
   .bg-lime-500 {
     background-color: var(--color-lime-500);

@@ -27,22 +27,22 @@ class Sign_up (UserCreationForm):
 
     email = forms.EmailField (label='' ,widget=forms.EmailInput(attrs={
 
-        'class' : 'w-120',
-        'placeholder' : 'username'
+        'class' : 'w-full border-none focus:outline-none p-3 bg-lime-200/40 rounded-md',
+        'placeholder' : 'Email'
 
     }))
 
     password1 = forms.CharField (max_length=10,label='' , widget=forms.PasswordInput(attrs={
 
-        'class' : 'w-120',
-        'placeholder' : 'username'
+        'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
+        'placeholder' : 'Password'
 
     }))
 
     password2 = forms.CharField (max_length=10,label='' , widget=forms.PasswordInput(attrs={
 
-        'class' : 'w-120',
-        'placeholder' : 'username'
+        'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
+        'placeholder' : 'Confirm Password'
 
     }))
 

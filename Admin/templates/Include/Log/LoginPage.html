@@ -13,7 +13,7 @@
 
         <div>
 
-            <img class="w-120" src="{{ accountCreate.IMG.url }}" alt="">
+            <img class="w-full" src="{{ accountCreate.IMG.url }}" alt="">
 
         </div>
 
@@ -41,6 +41,19 @@
                             <div class="w-full">
 
                                 {{ signup.username }}
+
+                            </div>
+
+                            <div class="w-full">
+
+                                {{ signup.email }}
+
+                            </div>
+
+                            <div class="w-full flex justify-between items-center gap-4">
+
+                                {{ signup.password1 }}
+                                {{ signup.password2 }}
 
                             </div>
 
