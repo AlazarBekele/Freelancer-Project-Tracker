@@ -16,3 +16,8 @@ def index (request):
     }
 
     return render (request, 'index.html', context=context)
+
+
+def loginPage (request):
+
+    return render (request, 'Include/Log/LoginPage.html')
