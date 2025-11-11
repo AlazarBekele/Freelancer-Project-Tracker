@@ -7,6 +7,10 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-lime-100: oklch(96.7% 0.067 122.328);
+    --color-lime-300: oklch(89.7% 0.196 126.665);
+    --color-lime-500: oklch(76.8% 0.233 130.85);
+    --color-lime-600: oklch(64.8% 0.2 131.684);
     --color-sky-300: oklch(82.8% 0.111 230.318);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-blue-50: oklch(97% 0.014 254.604);
@@ -238,6 +242,27 @@
   .w-100 {
     width: calc(var(--spacing) * 100);
   }
+  .w-110 {
+    width: calc(var(--spacing) * 110);
+  }
+  .w-120 {
+    width: calc(var(--spacing) * 120);
+  }
+  .w-140 {
+    width: calc(var(--spacing) * 140);
+  }
+  .w-150 {
+    width: calc(var(--spacing) * 150);
+  }
+  .w-160 {
+    width: calc(var(--spacing) * 160);
+  }
+  .w-170 {
+    width: calc(var(--spacing) * 170);
+  }
+  .w-180 {
+    width: calc(var(--spacing) * 180);
+  }
   .w-200 {
     width: calc(var(--spacing) * 200);
   }
@@ -347,8 +372,44 @@
   .border-indigo-600 {
     border-color: var(--color-indigo-600);
   }
+  .border-lime-100 {
+    border-color: var(--color-lime-100);
+  }
+  .border-lime-500 {
+    border-color: var(--color-lime-500);
+  }
+  .border-lime-600 {
+    border-color: var(--color-lime-600);
+  }
+  .border-lime-600\/20 {
+    border-color: color-mix(in srgb, oklch(64.8% 0.2 131.684) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-lime-600) 20%, transparent);
+    }
+  }
+  .border-lime-600\/30 {
+    border-color: color-mix(in srgb, oklch(64.8% 0.2 131.684) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-lime-600) 30%, transparent);
+    }
+  }
+  .border-lime-600\/40 {
+    border-color: color-mix(in srgb, oklch(64.8% 0.2 131.684) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-lime-600) 40%, transparent);
+    }
+  }
+  .border-lime-600\/50 {
+    border-color: color-mix(in srgb, oklch(64.8% 0.2 131.684) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-lime-600) 50%, transparent);
+    }
+  }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
+  }
+  .bg-lime-500 {
+    background-color: var(--color-lime-500);
   }
   .bg-stone-50 {
     background-color: var(--color-stone-50);
@@ -438,6 +499,18 @@
     --tw-font-weight: var(--font-weight-thin);
     font-weight: var(--font-weight-thin);
   }
+  .text-lime-300 {
+    color: var(--color-lime-300);
+  }
+  .text-lime-500 {
+    color: var(--color-lime-500);
+  }
+  .text-lime-600 {
+    color: var(--color-lime-600);
+  }
+  .text-purple-600 {
+    color: var(--color-purple-600);
+  }
   .text-sky-300 {
     color: var(--color-sky-300);
   }
@@ -449,6 +522,9 @@
   }
   .underline {
     text-decoration-line: underline;
+  }
+  .decoration-lime-500 {
+    text-decoration-color: var(--color-lime-500);
   }
   .decoration-sky-500 {
     text-decoration-color: var(--color-sky-500);
@@ -475,6 +551,22 @@
       color: color-mix(in srgb, oklch(62.3% 0.214 259.815) 40%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         color: color-mix(in oklab, var(--color-blue-500) 40%, transparent);
+      }
+    }
+  }
+  .placeholder\:text-lime-300\/40 {
+    &::placeholder {
+      color: color-mix(in srgb, oklch(89.7% 0.196 126.665) 40%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, var(--color-lime-300) 40%, transparent);
+      }
+    }
+  }
+  .placeholder\:text-lime-600\/40 {
+    &::placeholder {
+      color: color-mix(in srgb, oklch(64.8% 0.2 131.684) 40%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, var(--color-lime-600) 40%, transparent);
       }
     }
   }

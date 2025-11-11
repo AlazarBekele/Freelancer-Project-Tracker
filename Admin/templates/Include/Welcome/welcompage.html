@@ -14,35 +14,37 @@
 
             <div class="flex items-center justify-center">
 
-                <img class="w-full" src="{{ Wel.IMG.url }}" alt="">
+                <img class="w-160" src="{{ Wel.IMG.url }}" alt="">
 
             </div>
 
-            <div class="h-screen flex justify-center shadow-md rounded-lg">
+            <div class="h-screen flex justify-center items-center shadow-md rounded-lg">
 
-                <div class="flex items-center justify-center flex-col gap-8">
+                <div class="border-2 border-dashed w-160 h-100 py-8 px-8 flex flex-col justify-center items-center gap-8 border-lime-600/20 rounded-md">
 
-                    <div class="border-2 border-dashed w-full h-100 py-8 px-8 flex flex-col justify-center items-center gap-8 border-blue-100 rounded-md">
+                    <div>
 
-                        <div>
+                        <h1 class="font-bold text-2xl">Login here</h1>
 
-                            <h1 class="font-bold text-2xl">Login here</h1>
+                    </div>
 
-                        </div>
+                    <div class="flex flex-col gap-6 w-120">
 
-                        <div class="flex flex-col gap-6 w-90">
+                        <input type="text" class="text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3" placeholder="Username">
+                        <input type="password" class="text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3" placeholder="Password">
 
-                            <input type="text" class="text-sky-300 focus:outline-none border-b-1 border-blue-500 placeholder:text-blue-500/40 placeholder:font-thin px-3" placeholder="Username">
-                            <input type="text" class="text-sky-300 focus:outline-none border-b-1 border-blue-500 placeholder:text-blue-500/40 placeholder:font-thin px-3" placeholder="Password">
+                    </div>
 
-                        </div>
+                    <div>
 
-                        <div class="flex flex-col justify-start items-strat w-full">
+                        
 
-                            <button class="bg-blue-500 text-white px-8 py-2 rounded-md">Login</button>
-                            <p class="text-center p-2 font-thin">Don't have an account <span><a href="#" class="underline decoration-1 decoration-sky-500 text-sky-500">Create account</a></span></p>
+                    </div>
 
-                        </div>
+                    <div class="flex flex-col justify-start items-strat w-110">
+
+                        <button class="bg-lime-500 text-white px-8 py-2 rounded-md">Login</button>
+                        <p class="text-center p-2 font-thin">Don't have an account <span><a href="#" class="underline decoration-1 decoration-lime-500 text-lime-500">Create account</a></span></p>
 
                     </div>
 
