@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import (
     Welcome
+)
+
+from .forms import (
+    Sign_up
 )
 
 # Create your views here.
@@ -22,9 +26,19 @@ def loginPage (request):
 
     accountIMG = Welcome.objects.get (id=2)
 
+    sign_up = Sign_up (request.POST or None)
+
+    if request.method == 'POST':
+
+        if sign_up.is_valid():
+
+            sign_up.save()
+            redirect ('login')
+
     context = {
 
-        'accountCreate' : accountIMG
+        'accountCreate' : accountIMG,
+        'signup' : sign_up
 
     }
 

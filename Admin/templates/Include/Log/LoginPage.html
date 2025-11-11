@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +19,22 @@
 
         <div>
 
-            <p>Hello</p>
+            <div>
+
+                <p>Create Account</p>
+
+                <div class="w-120 flex flex-col gap-6">
+
+                    <form method="post">
+
+                        {% csrf_token %}
+                        {{ signup.as_p }}
+
+                    </form>
+
+                </div>
+
+            </div>
 
         </div>
 
