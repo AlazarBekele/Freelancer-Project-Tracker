@@ -20,4 +20,12 @@ def index (request):
 
 def loginPage (request):
 
-    return render (request, 'Include/Log/LoginPage.html')
+    accountIMG = Welcome.objects.get (id=2)
+
+    context = {
+
+        'accountCreate' : accountIMG
+
+    }
+
+    return render (request, 'Include/Log/LoginPage.html', context=context)
