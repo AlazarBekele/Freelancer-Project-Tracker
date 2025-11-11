@@ -227,6 +227,12 @@
   .h-100 {
     height: calc(var(--spacing) * 100);
   }
+  .h-130 {
+    height: calc(var(--spacing) * 130);
+  }
+  .h-140 {
+    height: calc(var(--spacing) * 140);
+  }
   .h-dvh {
     height: 100dvh;
   }
@@ -295,6 +301,9 @@
   }
   .items-center {
     align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
   }
   .justify-center {
     justify-content: center;
