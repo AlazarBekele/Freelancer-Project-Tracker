@@ -17,7 +17,7 @@
 
         </div>
 
-        <div>
+        <div class="flex justify-center items-strat py-8">
 
             <div>
 
@@ -29,10 +29,20 @@
 
                         {% csrf_token %}
 
-                        <div class="w-full flex gap-4">
+                        <div class="w-140 p-5 flex flex-col justify-center items-center gap-4">
 
-                            {{ signup.first_name }}
-                            {{ signup.last_name }}
+                            <div class="w-full flex justify-between items-center gap-4">
+
+                                {{ signup.first_name }}
+                                {{ signup.last_name }}
+
+                            </div>
+
+                            <div class="w-full">
+
+                                {{ signup.username }}
+
+                            </div>
 
                         </div>
 
