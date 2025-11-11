@@ -6,14 +6,14 @@ class Sign_up (UserCreationForm):
 
     first_name = forms.CharField (max_length=20,label='' , widget=forms.TextInput(attrs={
 
-        'class' : 'w-120',
+        'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
         'placeholder' : 'First Name'
 
     }))
 
     last_name = forms.CharField (max_length=20,label='' , widget=forms.TextInput(attrs={
 
-        'class' : 'w-120',
+        'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
         'placeholder' : 'Last Name'
 
     }))
