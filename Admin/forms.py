@@ -4,6 +4,17 @@ from django.contrib.auth.models import User
 
 class Sign_up (UserCreationForm):
 
+    ROLE_CHOOES = [
+        ('client', 'Client'),
+        ('freelancer', 'Freelancer')
+    ]
+
+    field_choose = forms.ChoiceField (choices=ROLE_CHOOES, label='Freelancer or Client', widget=forms.Select(attrs={
+
+        'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
+
+    }))
+
     first_name = forms.CharField (max_length=20,label='' , widget=forms.TextInput(attrs={
 
         'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
@@ -49,4 +60,4 @@ class Sign_up (UserCreationForm):
     class Meta:
 
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'field_choose')
