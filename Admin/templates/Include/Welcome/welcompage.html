@@ -2,8 +2,6 @@
 
 <div class="w-full grid grid-flow-col grid-rows-2 bg-stone-50">
 
-    {% for Wel in welcomeIMG %}
-
         <div class="flex justify-center items-center h-screen overflow-hidden bg-white">
 
             <img class="w-250" src="{% static 'Logo/FPT.png' %}" alt="">
@@ -14,7 +12,7 @@
 
             <div class="flex items-center justify-center">
 
-                <img class="w-160" src="{{ Wel.IMG.url }}" alt="">
+                    <img class="w-160" src="{{ welcomeIMG.IMG.url }}" alt="">
 
             </div>
 
@@ -64,7 +62,5 @@
             </div>
 
         </div>
-
-    {% endfor %}
 
 </div>

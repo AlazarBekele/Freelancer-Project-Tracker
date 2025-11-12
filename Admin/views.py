@@ -11,7 +11,7 @@ from .forms import (
 
 def index (request):
 
-    WelIMG = Welcome.objects.all()
+    WelIMG = Welcome.objects.get (id=1)
 
     context = {
 
