@@ -50,14 +50,14 @@ class Sign_up (UserCreationForm):
 
     }))
 
-    password2 = forms.CharField (max_length=10,label='' , widget=forms.PasswordInput(attrs={
+    # password2 = forms.CharField (max_length=10,label='' , widget=forms.PasswordInput(attrs={
 
-        'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
-        'placeholder' : 'Confirm Password'
+    #     'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
+    #     'placeholder' : 'Confirm Password'
 
-    }))
+    # }))
 
     class Meta:
 
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'field_choose')
+        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'field_choose')

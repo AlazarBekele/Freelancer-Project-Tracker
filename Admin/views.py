@@ -33,7 +33,10 @@ def loginPage (request):
         if sign_up.is_valid():
 
             sign_up.save()
-            redirect ('login')
+            return redirect ('login')
+        else:
+
+            print (sign_up.errors)
 
     context = {
 
