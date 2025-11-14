@@ -4,7 +4,8 @@ from .models import (
 )
 
 from .forms import (
-    Sign_up
+    Sign_up,
+    Sign_in
 )
 
 from django.contrib.auth import login, logout, authenticate
@@ -13,8 +14,7 @@ from django.contrib.auth import login, logout, authenticate
 
 def index (request):
 
-
-    form = Sign_up (request.POST or None)
+    form = Sign_in (request.POST or None)
 
     if request.method == 'POST':
 
@@ -34,7 +34,8 @@ def index (request):
 
     context = {
 
-        'welcomeIMG' : WelIMG
+        'welcomeIMG' : WelIMG,
+        'form' : form
 
     }
 

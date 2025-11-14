@@ -72,3 +72,18 @@ class Sign_up (UserCreationForm):
             user.save()
 
         return user
+    
+
+class Sign_in (forms.Form):
+
+    username = forms.CharField (max_length=30, widget=forms.TextInput(attrs={
+
+        'class' : 'text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3'
+
+    }))
+
+    password = forms.CharField (max_length=8, widget=forms.PasswordInput(attrs={
+
+        'class' : 'text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3'
+
+    }))
