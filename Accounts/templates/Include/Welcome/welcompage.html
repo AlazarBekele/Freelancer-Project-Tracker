@@ -26,34 +26,43 @@
 
                     </div>
 
-                    <div class="flex flex-col gap-6 w-120">
+                    <div>
 
-                        <input type="text" class="text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3" placeholder="Username">
-                        <input type="password" class="text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3" placeholder="Password">
+                        <form method="post">
 
-                    </div>
+                            <div class="flex flex-col gap-6 w-120">
 
-                    <div class="flex justify-between items-center w-120">
+                                <!-- <input type="text" class="text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3" placeholder="Username">
+                                <input type="password" class="text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3" placeholder="Password"> -->
 
-                        <div>
+                            </div>
 
-                            <input id="Rememberme" type="checkbox">
-                            <label for="Rememberme">Remember me</label>
+                            <div class="flex justify-between items-center w-120">
 
-                        </div>
+                                <div>
 
-                        <div>
+                                    <input id="Rememberme" type="checkbox">
+                                    <label for="Rememberme">Remember me</label>
 
-                            <a class="underline decoration-1 decoration-lime-500 text-lime-500" href="#">forget password</a>
+                                </div>
 
-                        </div>
+                                <div>
 
-                    </div>
+                                    <a class="underline decoration-1 decoration-lime-500 text-lime-500" href="#">forget password</a>
 
-                    <div class="flex flex-col justify-start items-strat w-110">
+                                </div>
 
-                        <button class="bg-lime-500 text-white px-8 py-2 rounded-md">Login</button>
-                        <p class="text-center p-2 font-thin">Don't have an account <span><a href="{% url 'Login' %}" class="underline decoration-1 decoration-lime-500 text-lime-500">Create account</a></span></p>
+                            </div>
+
+                            <div class="flex flex-col justify-start items-strat w-110">
+
+                                <button type="submit" class="bg-lime-500 text-white px-8 py-2 rounded-md">Login</button>
+
+                                <p class="text-center p-2 font-thin">Don't have an account <span><a href="{% url 'Login' %}" class="underline decoration-1 decoration-lime-500 text-lime-500">Create account</a></span></p>
+
+                            </div>
+
+                        </form>
 
                     </div>
 

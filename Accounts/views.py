@@ -7,9 +7,28 @@ from .forms import (
     Sign_up
 )
 
+from django.contrib.auth import login, logout, authenticate
+
 # Create your views here.
 
 def index (request):
+
+
+    form = Sign_up (request.POST or None)
+
+    if request.method == 'POST':
+
+        if form.is_valid():
+
+            username = request.POST.get('username')
+            password1 = request.POST.get('password1')
+
+            user = authenticate (request, username=username, password1=password1)
+
+            if user is not None:
+
+                login (request, user)
+                return redirect ('login')
 
     WelIMG = Welcome.objects.get (id=1)
 
