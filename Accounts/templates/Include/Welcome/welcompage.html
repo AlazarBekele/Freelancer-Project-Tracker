@@ -30,6 +30,8 @@
 
                         <form method="post">
 
+                            {% csrf_token %}
+
                             <div class="flex flex-col gap-6 w-120">
 
                                 {{ form.username }}
