@@ -9,6 +9,7 @@ from .forms import (
 )
 
 from django.contrib.auth import login, logout, authenticate
+from .signals import create_profile
 
 # Create your views here.
 
@@ -52,6 +53,8 @@ def loginPage (request):
 
         if sign_up.is_valid():
 
+            role = sign_up.cleaned_data.get('role')
+
             user = sign_up.save(commit=False)
 
             user.field_choose = sign_up.cleaned_data.get('field_choose')
@@ -72,3 +75,5 @@ def loginPage (request):
     }
 
     return render (request, 'Include/Log/LoginPage.html', context=context)
+
+# Set out the Extracted data
