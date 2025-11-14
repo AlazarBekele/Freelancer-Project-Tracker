@@ -28,7 +28,7 @@ def index (request):
             if user is not None:
 
                 login (request, user)
-                return redirect ('login')
+                return redirect ('Login')
 
     WelIMG = Welcome.objects.get (id=1)
 
@@ -58,7 +58,7 @@ def loginPage (request):
 
             user.save()
 
-            return redirect ('login')
+            return redirect ('Index')
         
         else:
 

@@ -52,10 +52,17 @@ class Sign_up (UserCreationForm):
 
     }))
 
+    password2 = forms.CharField (max_length=10,label='' , widget=forms.PasswordInput(attrs={
+
+        'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
+        'placeholder' : 'Confirm Password'
+
+    }))
+
     class Meta:
 
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'field_choose')
+        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'field_choose', 'password2')
 
     def save(self, commit=True):
 
@@ -84,10 +91,3 @@ class Sign_in (forms.Form):
         'placeholder' : "Password"
 
     }))
-
-    # password2 = forms.CharField (max_length=10,label='' , widget=forms.PasswordInput(attrs={
-
-    #     'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
-    #     'placeholder' : 'Confirm Password'
-
-    # }))
