@@ -21,9 +21,9 @@ def index (request):
         if form.is_valid():
 
             username = request.POST.get('username')
-            password1 = request.POST.get('password1')
+            password = request.POST.get('password1')
 
-            user = authenticate (request, username=username, password1=password1)
+            user = authenticate (request, username=username, password=password)
 
             if user is not None:
 

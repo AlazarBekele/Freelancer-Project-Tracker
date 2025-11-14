@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class Sign_up (UserCreationForm):
 
@@ -50,13 +52,6 @@ class Sign_up (UserCreationForm):
 
     }))
 
-    # password2 = forms.CharField (max_length=10,label='' , widget=forms.PasswordInput(attrs={
-
-    #     'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
-    #     'placeholder' : 'Confirm Password'
-
-    # }))
-
     class Meta:
 
         model = User
@@ -89,3 +84,10 @@ class Sign_in (forms.Form):
         'placeholder' : "Password"
 
     }))
+
+    # password2 = forms.CharField (max_length=10,label='' , widget=forms.PasswordInput(attrs={
+
+    #     'class' : 'w-70 border-none focus:outline-none p-3 bg-white rounded-md',
+    #     'placeholder' : 'Confirm Password'
+
+    # }))
