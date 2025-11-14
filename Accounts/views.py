@@ -54,7 +54,9 @@ def loginPage (request):
 
             user = sign_up.save(commit=False)
 
-            choose_value = sign_up.cleaned_data.get('field_choose')
+            user.field_choose = sign_up.cleaned_data.get('field_choose')
+
+            user.save()
 
             return redirect ('login')
         
