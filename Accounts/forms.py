@@ -61,3 +61,14 @@ class Sign_up (UserCreationForm):
 
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'field_choose')
+
+    def save(self, commit=True):
+
+        user = super().save(commit=False)
+        user.field_choose = self.cleaned_data['field_choose']
+
+        if commit:
+
+            user.save()
+
+        return user

@@ -24,7 +24,7 @@ def index (request):
 
 def loginPage (request):
 
-    accountIMG = Welcome.objects.get (id=2)
+    accountIMG = Welcome.objects.get (id=4)
 
     sign_up = Sign_up (request.POST or None)
 
@@ -32,8 +32,12 @@ def loginPage (request):
 
         if sign_up.is_valid():
 
-            sign_up.save()
+            user = sign_up.save(commit=False)
+
+            choose_value = sign_up.cleaned_data.get('field_choose')
+
             return redirect ('login')
+        
         else:
 
             print (sign_up.errors)
