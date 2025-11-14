@@ -15,8 +15,6 @@ from .signals import create_profile
 
 def index (request):
 
-
-
     form = Sign_in (request.POST or None)
 
     if request.method == 'POST':
@@ -31,7 +29,7 @@ def index (request):
             if user is not None:
 
                 login (request, user)
-                return redirect ('Login')
+                return redirect ('gotopass')
 
     WelIMG = Welcome.objects.get (id=1)
 
@@ -86,3 +84,7 @@ def loginPage (request):
 #         return redirect ("No_permission")
 
 #     return render (request, '')
+
+def goto_pass (request):
+
+    return render (request, 'Include/Goto/pass.html')

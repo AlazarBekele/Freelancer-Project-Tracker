@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import (
     index,
-    loginPage
+    loginPage,
+    goto_pass
 )
 
 from django.conf import settings
@@ -9,7 +10,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path ('', index, name='Index'),
-    path ('login/', loginPage, name='Login')
+    path ('login/', loginPage, name='Login'),
+    path ('gotopass/', goto_pass, name='Pass')
 ]
 
 if settings.DEBUG:
