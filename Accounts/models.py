@@ -38,3 +38,12 @@ class AccountTracker (models.Model):
 
     def __str__(self):
         return self.Field
+    
+
+class GoInto (models.Model):
+
+    DashName = models.CharField (max_length=20)
+    DashIMG = models.ImageField (upload_to='GoInto/')
+
+    def __str__(self):
+        return self.DashName
