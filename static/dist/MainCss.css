@@ -12,6 +12,7 @@
     --color-lime-600: oklch(64.8% 0.2 131.684);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-sky-50: oklch(97.7% 0.013 236.62);
+    --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-purple-600: oklch(55.8% 0.288 302.321);
     --color-stone-50: oklch(98.5% 0.001 106.423);
@@ -184,6 +185,12 @@
   }
 }
 @layer utilities {
+  .absolute {
+    position: absolute;
+  }
+  .relative {
+    position: relative;
+  }
   .static {
     position: static;
   }
@@ -211,6 +218,12 @@
   .h-130 {
     height: calc(var(--spacing) * 130);
   }
+  .h-150 {
+    height: calc(var(--spacing) * 150);
+  }
+  .h-250 {
+    height: calc(var(--spacing) * 250);
+  }
   .h-screen {
     height: 100vh;
   }
@@ -231,6 +244,9 @@
   }
   .w-160 {
     width: calc(var(--spacing) * 160);
+  }
+  .w-200 {
+    width: calc(var(--spacing) * 200);
   }
   .w-250 {
     width: calc(var(--spacing) * 250);
@@ -335,6 +351,9 @@
   }
   .bg-sky-50 {
     background-color: var(--color-sky-50);
+  }
+  .bg-sky-500 {
+    background-color: var(--color-sky-500);
   }
   .bg-stone-50 {
     background-color: var(--color-stone-50);
