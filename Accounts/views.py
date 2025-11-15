@@ -11,6 +11,7 @@ from .forms import (
 
 from django.contrib.auth import login, logout, authenticate
 from .signals import create_profile
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -87,6 +88,7 @@ def loginPage (request):
 
 #     return render (request, '')
 
+@login_required (login_url='/login/')
 def goto_pass (request):
 
     # User logged in account Fetch data
