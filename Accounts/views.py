@@ -89,11 +89,15 @@ def loginPage (request):
 
 def goto_pass (request):
 
+    # User logged in account Fetch data
+    user = request.user
+
     DashboardIMG = GoInto.objects.get(id=1)
 
     context = {
 
-        'DashboardIMG' : DashboardIMG
+        'DashboardIMG' : DashboardIMG,
+        'logged_data' : user
 
     }
 
