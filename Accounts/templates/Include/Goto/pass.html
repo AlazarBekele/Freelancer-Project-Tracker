@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +11,11 @@
 </head>
 <body>
 
-    <div class="w-full flex justify-center items-center">
+    <div class="w-full h-screen flex justify-center items-center">
 
-        <div>
+        <div class="bg-center opacity-25">
 
-            <img src="{{}}" alt="{{}}">
+            <img class="w-full mask-b-from-50% mask-radial-[50%_90%] mask-radial-from-80% " src="{{ DashboardIMG.DashIMG.url }}" alt="{{ DashboardIMG.DashName }}">
 
         </div>
 

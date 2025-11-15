@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import (
-    Welcome
+    Welcome,
+    GoInto
 )
 
 from .forms import (
@@ -88,4 +89,12 @@ def loginPage (request):
 
 def goto_pass (request):
 
-    return render (request, 'Include/Goto/pass.html')
+    DashboardIMG = GoInto.objects.get(id=1)
+
+    context = {
+
+        'DashboardIMG' : DashboardIMG
+
+    }
+
+    return render (request, 'Include/Goto/pass.html', context=context)
