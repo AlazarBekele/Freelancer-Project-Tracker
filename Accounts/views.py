@@ -22,14 +22,15 @@ def index (request):
         if form.is_valid():
 
             username = request.POST.get('username')
-            password = request.POST.get('password1')
+            password = request.POST.get('password')
 
             user = authenticate (request, username=username, password=password)
 
             if user is not None:
 
                 login (request, user)
-                return redirect ('gotopass')
+
+                return redirect ('Pass')
 
     WelIMG = Welcome.objects.get (id=1)
 
