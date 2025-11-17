@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     index,
     loginPage,
-    goto_pass
+    goto_pass,
+    freelancer_page
 )
 
 from django.conf import settings
@@ -11,7 +12,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path ('', index, name='Index'),
     path ('login/', loginPage, name='Login'),
-    path ('gotopass/', goto_pass, name='Pass')
+    path ('gotopass/', goto_pass, name='Pass'),
+    path ('FTP.com.admin/', freelancer_page, name='Freelancers')
 ]
 
 if settings.DEBUG:

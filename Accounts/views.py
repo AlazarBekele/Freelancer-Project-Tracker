@@ -100,3 +100,10 @@ def goto_pass (request):
     }
 
     return render (request, 'Include/Goto/pass.html', context=context)
+
+
+## MAIN PAGES (Freelancer's & Client's)
+
+def freelancer_page (request):
+
+    return render (request, 'Pages/Freelancers/freelancer_page.html')
