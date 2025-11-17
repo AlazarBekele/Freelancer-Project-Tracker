@@ -65,10 +65,6 @@ def loginPage (request):
             user.save()
 
             return redirect ('Index')
-        
-        else:
-
-            print (sign_up.errors)
 
     context = {
 
