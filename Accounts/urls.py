@@ -9,7 +9,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path ('welcome/', index, name='Index'),
+    path ('', index, name='Index'),
     path ('login/', loginPage, name='Login'),
     path ('gotopass/', goto_pass, name='Pass')
 ]
