@@ -110,25 +110,55 @@ def freelancer_page (request):
     return render (request, 'Pages/Freelancers/freelancer_page.html')
 
 
-@login_required (login_url='/login/')
-def profile_update (request):
+@login_required(login_url='/login/')
+def profile_update(request):
 
+    # Always get or create the profile picture for the logged-in user
     IMG_profile, created = ProfilePicture.objects.get_or_create(user=request.user)
 
+    # Default form for GET
     form_data = ProfileImageForm(instance=IMG_profile)
 
+    # POST request (saving image)
     if request.method == 'POST':
-
-        form_data = ProfileImageForm (request.POST, request.FILES, instance=IMG_profile)
-
+        form_data = ProfileImageForm(request.POST, request.FILES, instance=IMG_profile)
         if form_data.is_valid():
-
             form_data.save()
-            return redirect ('Pass')
+            return redirect('Pass')
+
+    # Context ALWAYS exists here
+    context = {
+        'IMG': IMG_profile,
+        'form': form_data
+    }
+
+    return render(request, 'Include/update/profile_update.html', context)
+
+
+# @login_required (login_url='/login/')
+# def profile_update (request):
+
+#     IMG_profile, created = ProfilePicture.objects.get_or_create(user=request.user)
+
+#     form_data = ProfileImageForm(instance=IMG_profile)
+
+#     if request.method == 'POST':
+
+#         form_data = ProfileImageForm (request.POST, request.FILES, instance=IMG_profile)
+
+#         if form_data.is_valid():
+
+#             form_data.save()
+#             return redirect ('Pass')
         
-        else:
+#         else:
 
-            form_data = ProfileImageForm(instance=IMG_profile)
+#             form_data = ProfileImageForm(instance=IMG_profile)
+
+#         context = {
+#             'IMG' : IMG_profile,
+#             'form' : form_data
+#         }
 
 
-    return render (request, 'Include/update/profile_update.html', {'form' : form_data})
+#     return render (request, 'Include/update/profile_update.html', context)

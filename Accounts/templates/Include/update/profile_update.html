@@ -15,9 +15,9 @@
 
                 {% csrf_token %}
 
-                {% comment %} <img src="{{ request.user.profile.userProfile.url }}" alt="No Image"> {% endcomment %}
-
                 {{ form.as_p }}
+
+                <button type="submit">Update</button>
 
             </form>
 

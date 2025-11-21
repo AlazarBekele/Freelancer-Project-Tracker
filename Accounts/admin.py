@@ -2,7 +2,8 @@ from django.contrib import admin
 from .models import (
     Welcome,
     AccountTracker,
-    GoInto
+    GoInto,
+    ProfilePicture
 )
 
 from django.contrib.auth.admin import UserAdmin
@@ -12,6 +13,7 @@ from .models import User
 admin.site.register (Welcome)
 admin.site.register (AccountTracker)
 admin.site.register (GoInto)
+admin.site.register (ProfilePicture)
 
 
 class CustomUserAdmin(UserAdmin):
