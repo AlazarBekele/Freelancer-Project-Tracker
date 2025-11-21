@@ -6,7 +6,8 @@ from .models import (
 
 from .forms import (
     Sign_up,
-    Sign_in
+    Sign_in,
+    ProfileImageForm
 )
 
 from django.contrib.auth import login, logout, authenticate
@@ -107,3 +108,25 @@ def goto_pass (request):
 def freelancer_page (request):
 
     return render (request, 'Pages/Freelancers/freelancer_page.html')
+
+
+def profile_update (request):
+
+    IMG_profile = request.user.profile
+
+    if request.method == 'POST':
+
+        form_data = ProfileImageForm (request.POST, request.FILES, instance=IMG_profile)
+
+        if form_data.is_valid():
+
+            form_data.save()
+            return redirect ('Freelancers')
+        
+    context = {
+
+        'form' : form_data
+
+    }
+
+    return render (request, 'Include/update/profile_update.html', context=context)

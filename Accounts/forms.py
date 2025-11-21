@@ -2,6 +2,10 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
+from .models import (
+    ProfilePicture
+)
+
 User = get_user_model()
 
 class Sign_up (UserCreationForm):
@@ -91,3 +95,17 @@ class Sign_in (forms.Form):
         'placeholder' : "Password"
 
     }))
+
+
+class ProfileImageForm (forms.ModelForm):
+
+    class Meta:
+
+        model = ProfilePicture
+        fields = ['profile_image']
+
+        'profile_image' = forms.ImageField (widget=forms.ClearableFileInput(attrs={
+
+            'class' : 'border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3'
+
+        }))
