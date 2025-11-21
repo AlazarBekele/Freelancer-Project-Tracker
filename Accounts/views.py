@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import (
     Welcome,
-    GoInto
+    GoInto,
+    ProfilePicture
 )
 
 from .forms import (
@@ -11,7 +12,6 @@ from .forms import (
 )
 
 from django.contrib.auth import login, logout, authenticate
-from .signals import create_profile
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -113,7 +113,9 @@ def freelancer_page (request):
 @login_required (login_url='/login/')
 def profile_update (request):
 
-    IMG_profile = request.user.profile
+    IMG_profile, created = ProfilePicture.objects.get_or_create(user=request.user)
+
+    form_data = ProfileImageForm(instance=IMG_profile)
 
     if request.method == 'POST':
 
@@ -122,12 +124,11 @@ def profile_update (request):
         if form_data.is_valid():
 
             form_data.save()
-            return redirect ('Login')
+            return redirect ('Pass')
         
-    context = {
+        else:
 
-        'form' : form_data
+            form_data = ProfileImageForm(instance=IMG_profile)
 
-    }
 
-    return render (request, 'Include/update/profile_update.html', context=context)
+    return render (request, 'Include/update/profile_update.html', {'form' : form_data})
