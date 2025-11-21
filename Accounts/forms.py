@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
 from .models import (
-    ProfilePicture
+    Profile
 )
 
 User = get_user_model()
@@ -97,14 +97,14 @@ class Sign_in (forms.Form):
     }))
 
 
-class ProfileImageForm (forms.ModelForm):
+class ProfileImageForm (forms.Form):
 
     class Meta:
 
-        model = ProfilePicture
+        model = Profile
         fields = ['profile_image']
 
-        'profile_image' = forms.ImageField (widget=forms.ClearableFileInput(attrs={
+        profile_image = forms.ImageField (widget=forms.ClearableFileInput(attrs={
 
             'class' : 'border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3'
 

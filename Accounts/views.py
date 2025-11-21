@@ -110,6 +110,7 @@ def freelancer_page (request):
     return render (request, 'Pages/Freelancers/freelancer_page.html')
 
 
+@login_required (login_url='/login/')
 def profile_update (request):
 
     IMG_profile = request.user.profile
@@ -121,7 +122,7 @@ def profile_update (request):
         if form_data.is_valid():
 
             form_data.save()
-            return redirect ('Freelancers')
+            return redirect ('Login')
         
     context = {
 

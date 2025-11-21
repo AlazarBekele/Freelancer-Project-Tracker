@@ -3,7 +3,8 @@ from .views import (
     index,
     loginPage,
     goto_pass,
-    freelancer_page
+    freelancer_page,
+    profile_update
 )
 
 from django.conf import settings
@@ -13,7 +14,8 @@ urlpatterns = [
     path ('', index, name='Index'),
     path ('login/', loginPage, name='Login'),
     path ('gotopass/', goto_pass, name='Pass'),
-    path ('FTP.com.admin/', freelancer_page, name='Freelancers')
+    path ('FTP.com.admin/', freelancer_page, name='Freelancers'),
+    path ('profileupdate/', profile_update, name='Profile_update')
 ]
 
 if settings.DEBUG:

@@ -5,7 +5,7 @@ from django.conf import settings
 # Create your models here.
 # Extract the User Profile's
 
-class Profiles (models.Model):
+class Profile (models.Model):
 
     # By what extraction method do you use my extraction (Choose field 'client', 'freelancer')
 
@@ -16,6 +16,7 @@ class Profiles (models.Model):
 
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     role = models.CharField (max_length=20, choices=ROOL_CHOOSE)
+    userProfile = models.ImageField (upload_to='Profile_picture/', null=True, blank=True)
 
     def __str__(self):
         return self.user.username
@@ -30,15 +31,6 @@ class Welcome (models.Model):
 
     def __str__(self):
         return self.Title
-
-
-class ProfilePicture (models.Model):
-
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    userProfile = models.ImageField (upload_to='Profile_picture/')
-
-    def __str__(self):
-        return self.user.username
 
 
 class AccountTracker (models.Model):

@@ -13,7 +13,11 @@
 
             <form method="post">
 
-                
+                {% csrf_token %}
+
+                <img src="{{ request.user.profile.userProfile.url }}" alt="No Image">
+
+                {{ form.as_p }}
 
             </form>
 
