@@ -30,7 +30,16 @@ class Welcome (models.Model):
 
     def __str__(self):
         return self.Title
-    
+
+
+class ProfilePicture (models.Model):
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    userProfile = models.ImageField (upload_to='Profile_picture/')
+
+    def __str__(self):
+        return self.user.username
+
 
 class AccountTracker (models.Model):
 
