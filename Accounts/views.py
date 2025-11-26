@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import (
     Welcome,
-    GoInto
+    GoInto,
+    Profiles
 )
 
 from .forms import (
@@ -99,11 +100,29 @@ def goto_pass (request):
 
     }
 
-    return render (request, 'Include/Goto/pass.html', context=context)
+    if request.user.is_authenticated:
+
+        return render (request, 'Include/Goto/pass.html', context=context)
+    
+    else:
+
+        return redirect ('Index')
 
 
 ## MAIN PAGES (Freelancer's & Client's)
 
 def freelancer_page (request):
 
-    return render (request, 'Pages/Freelancers/freelancer_page.html')
+    user = request.user
+
+    context = {
+        'user' : user
+    }
+
+    if request.user.is_authenticated:
+
+        return render (request, 'Pages/Freelancers/freelancer_page.html', context=context)
+    
+    else:
+
+        return redirect ('Index')
