@@ -61,27 +61,27 @@
             
                 </p>
 
-            </div>
-
-            <div>
-
                 <div>
 
-                    <form method="post">
+                    <div>
 
-                        {% for work_flows in form %}
+                        <form method="post">
 
-                            {% csrf_token %}
+                            {% for work_flows in form %}
 
-                            <ul>
+                                {% csrf_token %}
 
-                                <li>{{ work_flows.as_p }}</li>
+                                <ul>
 
-                            </ul>
-                            
-                        {% endfor %}
+                                    <li>{{ work_flows.as_p }}</li>
 
-                    </form>
+                                </ul>
+                                
+                            {% endfor %}
+
+                        </form>
+
+                    </div>
 
                 </div>
 

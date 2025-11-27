@@ -121,7 +121,7 @@ def goto_pass (request):
 
         'DashboardIMG' : DashboardIMG,
         'logged_data' : user,
-        'form' : form
+        'forms' : form
 
     }
 
