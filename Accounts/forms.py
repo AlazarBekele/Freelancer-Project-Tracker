@@ -2,6 +2,10 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
+from .models import (
+    Work_fields
+)
+
 User = get_user_model()
 
 class Sign_up (UserCreationForm):
@@ -93,7 +97,7 @@ class Sign_in (forms.Form):
     }))
 
 
-class Work_flow (UserCreationForm):
+class Work_flow (forms.Form):
 
     WORK_ON = [
         ('website', 'Website'),
@@ -109,8 +113,3 @@ class Work_flow (UserCreationForm):
         'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
 
     }))
-
-    class Meta:
-
-        model = User
-        fields = ['working_fields']

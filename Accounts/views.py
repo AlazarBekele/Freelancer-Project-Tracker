@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .models import (
     Welcome,
     GoInto,
-    Profiles
+    Profiles,
+    Work_fields
 )
 
 from .forms import (
@@ -92,9 +93,30 @@ def goto_pass (request):
 
     # User logged in account Fetch data
     user = request.user
-
     DashboardIMG = GoInto.objects.get(id=1)
 
+    # user_work_info = Work_fields.
+
+    if request.method == "POST":
+
+        form = Work_flow (request.POST, request.FILES)
+
+        if form.is_valid():
+
+            # Recive cleaned data form forms.py
+            user_work_info = form.cleaned_data['working_fields']
+
+            # Using create method save the datas got form ther
+
+            user_model_date = Work_fields.objects.create (
+
+                user_info = user_work_info
+
+            )
+
+            user_model_date.save()
+
+    
     context = {
 
         'DashboardIMG' : DashboardIMG,
@@ -103,28 +125,7 @@ def goto_pass (request):
 
     }
 
-    if request.user.is_authenticated:
-
-        if request.method == "POST":
-
-            work_flow = Work_flow (request.post)
-
-            if work_flow.is_valid():
-
-                work_flow.save()
-                return redirect ('Freelancers')
-            
-            else:
-
-                messages.success (request, 'GOT Error Try Again!!')
-                return redirect ('Login')
-
-        return render (request, 'Include/Goto/pass.html', context=context)
-    
-    else:
-
-        return redirect ('Index')
-
+    return render (request, 'Include/Goto/pass.html', context=context)
 
 ## MAIN PAGES (Freelancer's & Client's)
 

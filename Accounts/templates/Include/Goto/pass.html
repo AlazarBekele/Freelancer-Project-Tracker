@@ -63,7 +63,33 @@
 
             </div>
 
-            
+            <div>
+
+                {% if profile %}
+
+                        <div>
+
+                            {% for work_flows in work_flow %}
+
+                                <form method="post">
+
+                                    {% csrf_token %}
+
+                                    <ul>
+
+                                        <li>{{ work_flows.as_p }}</li>
+
+                                    </ul>
+
+                                </form>
+
+                            {% endfor %}
+
+                        </div>
+
+                {% endif %}
+
+            </div>
 
             <div class="w-full flex justify-between items-end">
 

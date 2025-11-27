@@ -16,10 +16,9 @@ class Profiles (models.Model):
 
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     role = models.CharField (max_length=20, choices=ROOL_CHOOSE)
-    work_flow = models.CharField (max_length=30, choices=WORK_ON, null=True, blank=True)
 
     def __str__(self):
-        return self.user.username + self.work_flow
+        return self.user.username
 
 class User(AbstractUser):
 
@@ -48,3 +47,8 @@ class GoInto (models.Model):
 
     def __str__(self):
         return self.DashName
+    
+
+class Work_fields (models.Model):
+
+    work_flow = models.CharField (max_length=60, null=True, blank=True)
