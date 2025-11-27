@@ -115,7 +115,9 @@ def goto_pass (request):
             )
 
             user_model_date.save()
-
+            messages.success (request, 'The Data Is Saved.')
+            return redirect ('Freelancers')
+        
     
     context = {
 
