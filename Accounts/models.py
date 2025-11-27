@@ -58,3 +58,8 @@ class GoInto (models.Model):
 
     def __str__(self):
         return self.DashName
+    
+
+class Work_fields (models.Model):
+
+    work_flow = models.CharField (max_length=60, null=True, blank=True)

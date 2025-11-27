@@ -2,15 +2,25 @@ from django.shortcuts import render, redirect
 from .models import (
     Welcome,
     GoInto,
+<<<<<<< HEAD
     ProfilePicture
+=======
+    Profiles,
+    Work_fields
+>>>>>>> New-Code
 )
 
 from .forms import (
     Sign_up,
     Sign_in,
+<<<<<<< HEAD
     ProfileImageForm
+=======
+    Work_flow
+>>>>>>> New-Code
 )
 
+from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 
@@ -90,23 +100,47 @@ def goto_pass (request):
 
     # User logged in account Fetch data
     user = request.user
-
     DashboardIMG = GoInto.objects.get(id=1)
 
+    # user_work_info = Work_fields.
+
+    if request.method == "POST":
+
+        form = Work_flow (request.POST, request.FILES)
+
+        if form.is_valid():
+
+            # Recive cleaned data form forms.py
+            user_work_info = form.cleaned_data['working_fields']
+
+            # Using create method save the datas got form ther
+
+            user_model_date = Work_fields.objects.create (
+
+                user_info = user_work_info
+
+            )
+
+            user_model_date.save()
+            messages.success (request, 'The Data Is Saved.')
+            return redirect ('Freelancers')
+        
+    
     context = {
 
         'DashboardIMG' : DashboardIMG,
-        'logged_data' : user
+        'logged_data' : user,
+        'work_flow' : work_flow
 
     }
 
     return render (request, 'Include/Goto/pass.html', context=context)
 
-
 ## MAIN PAGES (Freelancer's & Client's)
 
 def freelancer_page (request):
 
+<<<<<<< HEAD
     return render (request, 'Pages/Freelancers/freelancer_page.html')
 
 
@@ -162,3 +196,18 @@ def profile_update(request):
 
 
 #     return render (request, 'Include/update/profile_update.html', context)
+=======
+    user = request.user
+
+    context = {
+        'user' : user
+    }
+
+    if request.user.is_authenticated:
+
+        return render (request, 'Pages/Freelancers/freelancer_page.html', context=context)
+    
+    else:
+
+        return redirect ('Index')
+>>>>>>> New-Code
