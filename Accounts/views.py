@@ -2,22 +2,14 @@ from django.shortcuts import render, redirect
 from .models import (
     Welcome,
     GoInto,
-<<<<<<< HEAD
-    ProfilePicture
-=======
     Profiles,
     Work_fields
->>>>>>> New-Code
 )
 
 from .forms import (
     Sign_up,
     Sign_in,
-<<<<<<< HEAD
-    ProfileImageForm
-=======
     Work_flow
->>>>>>> New-Code
 )
 
 from django.contrib import messages
@@ -140,63 +132,6 @@ def goto_pass (request):
 
 def freelancer_page (request):
 
-<<<<<<< HEAD
-    return render (request, 'Pages/Freelancers/freelancer_page.html')
-
-
-@login_required(login_url='/login/')
-def profile_update(request):
-
-    # Always get or create the profile picture for the logged-in user
-    IMG_profile, created = ProfilePicture.objects.get_or_create(user=request.user)
-
-    # Default form for GET
-    form_data = ProfileImageForm(instance=IMG_profile)
-
-    # POST request (saving image)
-    if request.method == 'POST':
-        form_data = ProfileImageForm(request.POST, request.FILES, instance=IMG_profile)
-        if form_data.is_valid():
-            form_data.save()
-            return redirect('Pass')
-
-    # Context ALWAYS exists here
-    context = {
-        'IMG': IMG_profile,
-        'form': form_data
-    }
-
-    return render(request, 'Include/update/profile_update.html', context)
-
-
-# @login_required (login_url='/login/')
-# def profile_update (request):
-
-#     IMG_profile, created = ProfilePicture.objects.get_or_create(user=request.user)
-
-#     form_data = ProfileImageForm(instance=IMG_profile)
-
-#     if request.method == 'POST':
-
-#         form_data = ProfileImageForm (request.POST, request.FILES, instance=IMG_profile)
-
-#         if form_data.is_valid():
-
-#             form_data.save()
-#             return redirect ('Pass')
-        
-#         else:
-
-#             form_data = ProfileImageForm(instance=IMG_profile)
-
-#         context = {
-#             'IMG' : IMG_profile,
-#             'form' : form_data
-#         }
-
-
-#     return render (request, 'Include/update/profile_update.html', context)
-=======
     user = request.user
 
     context = {
@@ -210,4 +145,3 @@ def profile_update(request):
     else:
 
         return redirect ('Index')
->>>>>>> New-Code

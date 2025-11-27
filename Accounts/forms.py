@@ -3,11 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
 from .models import (
-<<<<<<< HEAD
-    ProfilePicture
-=======
     Work_fields
->>>>>>> New-Code
 )
 
 User = get_user_model()
@@ -101,20 +97,6 @@ class Sign_in (forms.Form):
     }))
 
 
-<<<<<<< HEAD
-class ProfileImageForm (forms.ModelForm):
-
-    class Meta:
-
-        model = ProfilePicture
-        fields = ['userProfile']
-
-        userProfile = forms.ImageField (widget=forms.ClearableFileInput(attrs={
-
-            'class' : 'border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3'
-
-        }))
-=======
 class Work_flow (forms.Form):
 
     WORK_ON = [
@@ -131,4 +113,3 @@ class Work_flow (forms.Form):
         'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
 
     }))
->>>>>>> New-Code

@@ -9,7 +9,7 @@ class User(AbstractUser):
 
     field_choose = models.CharField (max_length=30, null=True, blank=True)
 
-class Profile (models.Model):
+class Profiles (models.Model):
 
     # By what extraction method do you use my extraction (Choose field 'client', 'freelancer')
 
