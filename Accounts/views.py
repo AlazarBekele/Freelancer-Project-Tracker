@@ -123,7 +123,7 @@ def goto_pass (request):
 
         'DashboardIMG' : DashboardIMG,
         'logged_data' : user,
-        'work_flow' : work_flow
+        'forms' : form
 
     }
 
