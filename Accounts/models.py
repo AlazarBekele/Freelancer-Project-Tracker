@@ -14,11 +14,21 @@ class Profiles (models.Model):
         ('freelancer', 'Freelancer')
     )
 
+    WORK_ON = [
+        ('website', 'Website'),
+        ('videoEditer', 'Video Editor'),
+        ('AccountFinace', 'Account Finace'),
+        ('websitedesign', 'Website Design'),
+        ('HR', 'Human Resource'),
+        ('software', 'Software Engineering'),
+    ]
+
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     role = models.CharField (max_length=20, choices=ROOL_CHOOSE)
+    work_flow = models.CharField (max_length=30, choices=WORK_ON, null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.username + self.work_flow
 
 class User(AbstractUser):
 

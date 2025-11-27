@@ -11,6 +11,15 @@ class Sign_up (UserCreationForm):
         ('freelancer', 'Freelancer')
     ]
 
+    WORK_ON = [
+        ('website', 'Website'),
+        ('videoEditer', 'Video Editor'),
+        ('AccountFinace', 'Account Finace'),
+        ('websitedesign', 'Website Design'),
+        ('HR', 'Human Resource'),
+        ('software', 'Software Engineering'),
+    ]
+
     field_choose = forms.ChoiceField (choices=ROLE_CHOOES, label='Freelancer or Client', widget=forms.Select(attrs={
 
         'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
@@ -59,10 +68,16 @@ class Sign_up (UserCreationForm):
 
     }))
 
+    working_fields = forms.ChoiceField (choices=WORK_ON, label='Choose Your Field', widget=forms.Select(attrs={
+
+        'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
+
+    }))
+
     class Meta:
 
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'field_choose', 'password2')
+        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'field_choose', 'password2', 'working_fields')
 
     def save(self, commit=True):
 
