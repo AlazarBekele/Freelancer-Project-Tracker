@@ -83,6 +83,7 @@ class Sign_up (UserCreationForm):
 
         user = super().save(commit=False)
         user.field_choose = self.cleaned_data['field_choose']
+        user.working_fields = self.cleaned_data['working_fields']
 
         if commit:
 

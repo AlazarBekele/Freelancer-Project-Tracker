@@ -57,13 +57,14 @@ def loginPage (request):
 
         if sign_up.is_valid():
 
-            role = sign_up.cleaned_data.get('role')
+            # role = sign_up.cleaned_data.get('role')
 
-            user = sign_up.save(commit=False)
+            # user = sign_up.save(commit=False)
 
-            user.field_choose = sign_up.cleaned_data.get('field_choose')
+            # user.field_choose = sign_up.cleaned_data.get('field_choose')
+            # user.working_fields = sign_up.cleaned_data.get('working_fields')
 
-            user.save()
+            sign_up.save()
 
             return redirect ('Index')
 
@@ -92,8 +93,6 @@ def goto_pass (request):
     user = request.user
     DashboardIMG = GoInto.objects.get(id=1)
 
-
-    
     context = {
 
         'DashboardIMG' : DashboardIMG,
