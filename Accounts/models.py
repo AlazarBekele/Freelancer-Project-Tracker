@@ -5,18 +5,11 @@ from django.conf import settings
 # Create your models here.
 # Extract the User Profile's
 
-WORK_ON = [
-    ('website', 'Website'),
-    ('videoEditer', 'Video Editor'),
-    ('AccountFinace', 'Account Finace'),
-    ('websitedesign', 'Website Design'),
-    ('HR', 'Human Resource'),
-    ('software', 'Software Engineering'),
-]
 
 class User(AbstractUser):
 
     field_choose = models.CharField (max_length=30, null=True, blank=True)
+    working_fields = models.CharField (max_length=30, null=True, blank=True)
 
 class Profiles (models.Model):
 

@@ -2,14 +2,12 @@ from django.shortcuts import render, redirect
 from .models import (
     Welcome,
     GoInto,
-    Profiles,
-    Work_fields
+    Profiles
 )
 
 from .forms import (
     Sign_up,
     Sign_in,
-    Work_flow
 )
 
 from django.contrib import messages
