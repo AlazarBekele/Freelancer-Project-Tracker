@@ -67,17 +67,7 @@
 
                         <form method="post">
 
-                            {% for work_flows in form %}
-
-                                {% csrf_token %}
-
-                                <ul>
-
-                                    <li>{{ work_flows.as_p }}</li>
-
-                                </ul>
-                                
-                            {% endfor %}
+                            
 
                         </form>
 

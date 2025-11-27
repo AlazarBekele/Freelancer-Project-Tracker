@@ -6,6 +6,8 @@ from .models import (
     ProfilePicture
 )
 
+from django.contrib.auth.models import Group
+
 from django.contrib.auth.admin import UserAdmin
 from .models import User
 # Register your models here.

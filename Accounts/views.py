@@ -94,34 +94,12 @@ def goto_pass (request):
     user = request.user
     DashboardIMG = GoInto.objects.get(id=1)
 
-    form = Work_flow()
 
-    if request.method == "POST":
-
-        form = Work_flow (request.POST, request.FILES)
-
-        if form.is_valid():
-
-            # Recive cleaned data form forms.py
-            user_work_info = form.cleaned_data['working_fields']
-
-            # Using create method save the datas got form ther
-            user_model_date = Work_fields.objects.create (
-
-                user_info = user_work_info
-
-            )
-
-            user_model_date.save()
-            messages.success (request, 'The Data Is Saved.')
-            return redirect ('Freelancers')
-        
     
     context = {
 
         'DashboardIMG' : DashboardIMG,
-        'logged_data' : user,
-        'forms' : form
+        'logged_data' : user
 
     }
 

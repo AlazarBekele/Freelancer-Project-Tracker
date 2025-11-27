@@ -96,20 +96,8 @@ class Sign_in (forms.Form):
 
     }))
 
+    # working_fields = forms.ChoiceField (choices=WORK_ON, label='Choose Your Field', widget=forms.Select(attrs={
 
-class Work_flow (forms.ModelForm):
+    #     'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
 
-    WORK_ON = [
-        ('website', 'Website'),
-        ('videoEditer', 'Video Editor'),
-        ('AccountFinace', 'Account Finace'),
-        ('websitedesign', 'Website Design'),
-        ('HR', 'Human Resource'),
-        ('software', 'Software Engineering'),
-    ]
-
-    working_fields = forms.ChoiceField (choices=WORK_ON, label='Choose Your Field', widget=forms.Select(attrs={
-
-        'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
-
-    }))
+    # }))

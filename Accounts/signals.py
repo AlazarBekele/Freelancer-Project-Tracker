@@ -10,7 +10,3 @@ def create_user_related_objects(sender, instance, created, **kwargs):
         # Create Profile automatically
 
         Profiles.objects.create(user=instance)
-
-def save_user_profile (sender, instance, created, **kwargs):
-
-    instance.profiles.save()

@@ -5,6 +5,15 @@ from django.conf import settings
 # Create your models here.
 # Extract the User Profile's
 
+WORK_ON = [
+    ('website', 'Website'),
+    ('videoEditer', 'Video Editor'),
+    ('AccountFinace', 'Account Finace'),
+    ('websitedesign', 'Website Design'),
+    ('HR', 'Human Resource'),
+    ('software', 'Software Engineering'),
+]
+
 class User(AbstractUser):
 
     field_choose = models.CharField (max_length=30, null=True, blank=True)
@@ -58,12 +67,3 @@ class GoInto (models.Model):
 
     def __str__(self):
         return self.DashName
-    
-
-class Work_fields (models.Model):
-
-    user = models.OneToOneField (User, on_delete=models.CASCADE)
-    work_flow = models.CharField (max_length=60, null=True, blank=True)
-
-    def __str__(self):
-        return self.user.username
