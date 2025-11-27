@@ -65,29 +65,25 @@
 
             <div>
 
-                {% if profile %}
+                <div>
 
-                        <div>
+                    <form method="post">
 
-                            {% for work_flows in work_flow %}
+                        {% for work_flows in form %}
 
-                                <form method="post">
+                            {% csrf_token %}
 
-                                    {% csrf_token %}
+                            <ul>
 
-                                    <ul>
+                                <li>{{ work_flows.as_p }}</li>
 
-                                        <li>{{ work_flows.as_p }}</li>
+                            </ul>
+                            
+                        {% endfor %}
 
-                                    </ul>
+                    </form>
 
-                                </form>
-
-                            {% endfor %}
-
-                        </div>
-
-                {% endif %}
+                </div>
 
             </div>
 

@@ -94,7 +94,7 @@ def goto_pass (request):
     user = request.user
     DashboardIMG = GoInto.objects.get(id=1)
 
-    # user_work_info = Work_fields.
+    form = Work_flow()
 
     if request.method == "POST":
 
@@ -106,7 +106,6 @@ def goto_pass (request):
             user_work_info = form.cleaned_data['working_fields']
 
             # Using create method save the datas got form ther
-
             user_model_date = Work_fields.objects.create (
 
                 user_info = user_work_info
@@ -122,7 +121,7 @@ def goto_pass (request):
 
         'DashboardIMG' : DashboardIMG,
         'logged_data' : user,
-        'work_flow' : form
+        'form' : form
 
     }
 
