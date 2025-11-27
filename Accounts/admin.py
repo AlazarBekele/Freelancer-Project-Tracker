@@ -20,12 +20,12 @@ admin.site.register (ProfilePicture)
 
 class CustomUserAdmin(UserAdmin):
     model = User
-    list_display = ('username', 'email', 'first_name', 'last_name', 'field_choose', 'is_staff')
+    list_display = ('username', 'email', 'first_name', 'last_name', 'field_choose', 'working_fields', 'is_staff')
     fieldsets = UserAdmin.fieldsets + (
         ('Custom Fields', {'fields': ('field_choose',)}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ('Custom Fields', {'fields': ('field_choose',)}),
+        ('Custom Fields', {'fields': ('working_fields',)}),
     )
 
 admin.site.register(User, CustomUserAdmin)
