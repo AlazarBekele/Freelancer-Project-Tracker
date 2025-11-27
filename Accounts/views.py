@@ -7,9 +7,11 @@ from .models import (
 
 from .forms import (
     Sign_up,
-    Sign_in
+    Sign_in,
+    Work_flow
 )
 
+from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from .signals import create_profile
 from django.contrib.auth.decorators import login_required
@@ -96,11 +98,26 @@ def goto_pass (request):
     context = {
 
         'DashboardIMG' : DashboardIMG,
-        'logged_data' : user
+        'logged_data' : user,
+        'work_flow' : work_flow
 
     }
 
     if request.user.is_authenticated:
+
+        if request.method == "POST":
+
+            work_flow = Work_flow (request.post)
+
+            if work_flow.is_valid():
+
+                work_flow.save()
+                return redirect ('Freelancers')
+            
+            else:
+
+                messages.success (request, 'GOT Error Try Again!!')
+                return redirect ('Login')
 
         return render (request, 'Include/Goto/pass.html', context=context)
     
