@@ -33,3 +33,18 @@
   font-weight: 900;
   font-style: normal;
 }
+
+
+.roboto_condensed_Semilight {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.roboto_condensed_bold {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
