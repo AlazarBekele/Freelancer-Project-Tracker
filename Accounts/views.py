@@ -49,7 +49,7 @@ def index (request):
 
 def loginPage (request):
 
-    accountIMG = Welcome.objects.get (id=4)
+    accountIMG = Welcome.objects.get (id=3)
 
     sign_up = Sign_up (request.POST or None)
 
