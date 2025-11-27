@@ -62,4 +62,8 @@ class GoInto (models.Model):
 
 class Work_fields (models.Model):
 
+    user = models.OneToOneField (User, on_delete=models.CASCADE)
     work_flow = models.CharField (max_length=60, null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username

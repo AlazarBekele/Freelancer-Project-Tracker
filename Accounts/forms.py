@@ -97,7 +97,7 @@ class Sign_in (forms.Form):
     }))
 
 
-class Work_flow (forms.Form):
+class Work_flow (forms.ModelForm):
 
     WORK_ON = [
         ('website', 'Website'),
