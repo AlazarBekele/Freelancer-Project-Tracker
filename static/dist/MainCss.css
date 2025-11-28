@@ -278,6 +278,12 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
+  .w-13 {
+    width: calc(var(--spacing) * 13);
+  }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
   .w-25 {
     width: calc(var(--spacing) * 25);
   }
@@ -335,6 +341,9 @@
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .rotate-90 {
+    rotate: 90deg;
   }
   .list-disc {
     list-style-type: disc;
@@ -419,6 +428,10 @@
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
+  }
+  .border-s-4 {
+    border-inline-start-style: var(--tw-border-style);
+    border-inline-start-width: 4px;
   }
   .border-b-1 {
     border-bottom-style: var(--tw-border-style);
