@@ -104,12 +104,16 @@ def goto_pass (request):
 
 ## MAIN PAGES (Freelancer's & Client's)
 @login_required (login_url='/login/')
-def freelancer_page (request):
+def freelancer_page (request, id):
+
+    # Load profile Picture
+    profile_img = Profiles.objects.get (id=id)
 
     user = request.user
 
     context = {
-        'user' : user
+        'user' : user,
+        'profile_img' : profile_img
     }
 
     if request.user.is_authenticated:

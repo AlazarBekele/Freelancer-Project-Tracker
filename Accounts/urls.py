@@ -13,7 +13,7 @@ urlpatterns = [
     path ('', index, name='Index'),
     path ('login/', loginPage, name='Login'),
     path ('gotopass/', goto_pass, name='Pass'),
-    path ('FTP.com.admin/', freelancer_page, name='Freelancers'),
+    path ('FTP.com.admin/<int:id>', freelancer_page, name='Freelancers'),
 ]
 
 if settings.DEBUG:

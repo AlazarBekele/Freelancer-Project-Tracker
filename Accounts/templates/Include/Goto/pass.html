@@ -86,7 +86,8 @@
 
                 </div>
 
-                <a href="{% url 'Freelancers' %}"><div class="w-70 bg-emerald-300 hover:bg-emerald-500 transition delay-150 duration-300 ease-in-out p-3 gap-2 rounded-tl-lg text-white">
+                {% comment %} When U add id on the must add after the url ended request.user.id {% endcomment %}
+                <a href="{% url 'Freelancers' request.user.id %}"><div class="w-70 bg-emerald-300 hover:bg-emerald-500 transition delay-150 duration-300 ease-in-out p-3 gap-2 rounded-tl-lg text-white">
 
                     <button class="text-xl">Get In</button>
                     <i class="fa-solid fa-arrow-right"></i>
