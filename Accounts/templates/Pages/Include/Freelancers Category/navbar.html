@@ -4,21 +4,21 @@
 
     <div class="Profile_Pic grid grid-cols-[1fr_200px_1fr] gap-10 justify-center items-center">
 
-        <div class="flex justify-evenly items-center gap-20">
+        <div class="flex justify-evenly items-center gap-30">
 
-            <div>
+            <div class="flex justify-evenly items-center gap-5">
 
                 {% if profile_img.user_profile_img %}
                     
-                    <img class="mask-radial-at-center mask-radial-from-100% mask-r-from-30% w-10" src="{{ profile_img.user_profile_img.url }}" alt="">
+                    <img class="mask-radial-at-center mask-radial-from-100% mask-r-from-30% w-10 " src="{{ profile_img.user_profile_img.url }}" alt="">
                  
                 {% else %}
 
-                    <h2>Unknown Profile</h2>
+                    <h2>Profile</h2>
 
                 {% endif %}
 
-                <div class="flex gap-2">
+                <div class="w-90 flex gap-2">
 
                     <h2 class="roboto_condensed_Semilight">{{ request.user.first_name }} {{ request.user.last_name }} |</h2>
 

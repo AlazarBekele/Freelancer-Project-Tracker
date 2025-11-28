@@ -12,12 +12,12 @@ class Sign_up (UserCreationForm):
     ]
 
     WORK_ON = [
-        ('website', 'Website'),
-        ('videoEditer', 'Video Editor'),
-        ('AccountFinace', 'Account Finace'),
-        ('websitedesign', 'Website Design'),
-        ('HR', 'Human Resource'),
-        ('software', 'Software Engineering'),
+        ('Website', 'Website'),
+        ('Video Editor', 'Video Editor'),
+        ('Account Finace', 'Account Finace'),
+        ('Website Design', 'Website Design'),
+        ('Human Resource', 'Human Resource'),
+        ('Software Engineering', 'Software Engineering'),
     ]
 
     field_choose = forms.ChoiceField (choices=ROLE_CHOOES, label='Freelancer or Client', widget=forms.Select(attrs={

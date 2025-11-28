@@ -107,7 +107,17 @@ def goto_pass (request):
 def freelancer_page (request, id):
 
     # Load profile Picture
-    profile_img = Profiles.objects.get (id=id)
+    if request.user.id == id:
+
+        profile_img = Profiles.objects.get (id=id)
+
+    elif request.user.id != id:
+
+        return redirect ('Login')
+    
+    else:
+
+        return redirect ('Index')
 
     user = request.user
 
