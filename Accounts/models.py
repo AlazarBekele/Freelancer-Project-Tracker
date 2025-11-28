@@ -20,8 +20,18 @@ class Profiles (models.Model):
         ('freelancer', 'Freelancer')
     )
 
+    WORK_ON = [
+        ('website', 'Website'),
+        ('videoEditer', 'Video Editor'),
+        ('AccountFinace', 'Account Finace'),
+        ('websitedesign', 'Website Design'),
+        ('HR', 'Human Resource'),
+        ('software', 'Software Engineering'),
+    ]
+
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     role = models.CharField (max_length=20, choices=ROLE_CHOICE)
+    work_field_flows = models.CharField (max_length=55, choices=WORK_ON, null=True, blank=True)
 
     def __str__(self):
         return self.user.username
