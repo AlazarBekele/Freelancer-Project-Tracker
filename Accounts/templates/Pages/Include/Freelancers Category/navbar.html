@@ -1,29 +1,41 @@
 {% load static %}
 
-<div class="Main_nav_bar w-full h-20 bg-white">
+<div class="Main_nav_bar w-full h-20 bg-white flex justify-between items-center">
 
-    <div class="Profile_Pic">
+    <div class="Profile_Pic grid grid-cols-[1fr_200px_1fr] gap-10 justify-center items-center">
 
-        <img class="mask-radial-at-center mask-radial-from-100% mask-r-from-30%" src="" alt="">
+        <div class="flex justify-evenly items-center gap-20">
 
-        <div class="flex gap-2">
+            <div>
 
-            <h2 class="roboto_condensed_Semilight">{{ request.user.first_name }} {{ request.user.last_name }} |</h2>
+                <img class="mask-radial-at-center mask-radial-from-100% mask-r-from-30%" src="" alt="">
 
-            <h2 class="font-semibold">{{ request.user.working_fields }}</h2>
+                <div class="flex gap-2">
 
-        </div>
+                    <h2 class="roboto_condensed_Semilight">{{ request.user.first_name }} {{ request.user.last_name }} |</h2>
 
-        <div class="relative w-90">
+                    <h2 class="font-semibold">{{ request.user.working_fields }}</h2>
 
-            <input type="text" class="w-90 h-10 border-none focus:outline-none p-3 bg-emerald-100 rounded-md" name="" id="">
-
-            <div class="absolute right-3 top-1/2 -translate-y-1/2">
-
-                <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
 
             </div>
 
+            <div class="flex justify-evenly items-center">
+
+                <div class="relative w-90">
+
+                    <input type="text" class="w-90 h-10 border-none focus:outline-none p-3 bg-emerald-100 rounded-md" name="" id="">
+
+                    <div class="absolute right-3 top-1/2 -translate-y-1/2">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
         </div>
 
         <div class="w-40 flex justify-evenly">
@@ -36,15 +48,19 @@
 
         </div>
 
-        <div>
+        <div class="flex justify-start items-center w-80">
 
-            <hr class="border-s-4 w-13 rotate-90">
+            <div>
 
-        </div>
+                <hr class="border-s-4 w-13 rotate-90">
 
-        <div>
+            </div>
 
-            <button>Comming Soon</button>
+            <div>
+
+                <button class="roboto_condensed_black bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 pt-2 pb-2 pl-5 pr-5 rounded-lg text-white cursor-progress">Comming Soon</button>
+
+            </div>
 
         </div>
 

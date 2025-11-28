@@ -48,3 +48,10 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.roboto_condensed_black {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}

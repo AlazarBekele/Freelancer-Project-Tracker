@@ -19,6 +19,22 @@ admin.site.register (GoInto)
 admin.site.register (ProfilePicture)
 admin.site.register (Profiles)
 
+class ProfileAddUser (admin.StackedInline):
+
+    model = Profiles
+
+class UserAdmin (admin.ModelAdmin):
+
+    model = User
+    fields = ['first_name', 'last_name', 'email', 'user_name', 'role', 'work_field_flows']
+    inlines = [ProfileAddUser]
+
+# unregister the default one
+admin.site.unregister (User)
+
+# register the Make
+admin.site.register (User, UserAdmin)
+
 
 class CustomUserAdmin(UserAdmin):
     model = User
