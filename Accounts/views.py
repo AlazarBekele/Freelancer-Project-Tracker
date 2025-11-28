@@ -103,7 +103,7 @@ def goto_pass (request):
     return render (request, 'Include/Goto/pass.html', context=context)
 
 ## MAIN PAGES (Freelancer's & Client's)
-
+@login_required (login_url='/login/')
 def freelancer_page (request):
 
     user = request.user
