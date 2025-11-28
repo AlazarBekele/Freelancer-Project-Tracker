@@ -30,8 +30,6 @@ class Profiles (models.Model):
     ]
 
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    role = models.CharField (max_length=20, choices=ROLE_CHOICE)
-    work_field_flows = models.CharField (max_length=55, choices=WORK_ON, null=True, blank=True)
     user_profile_img = models.ImageField (upload_to='profile_pic/', null=True, blank=True)
 
     def __str__(self):
