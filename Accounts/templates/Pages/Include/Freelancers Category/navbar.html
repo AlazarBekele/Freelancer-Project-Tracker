@@ -8,9 +8,21 @@
 
         <div class="flex gap-2">
 
-            <h2 class="roboto_condensed_Semilight">{{ request.user.first_name }} {{ request.user.last_name }} </h2>
+            <h2 class="roboto_condensed_Semilight">{{ request.user.first_name }} {{ request.user.last_name }} |</h2>
 
-            <h2 class="font-semibold">| {{ request.user.working_fields }}</h2>
+            <h2 class="font-semibold">{{ request.user.working_fields }}</h2>
+
+        </div>
+
+        <div class="relative w-90">
+
+            <input type="text" class="w-90 h-10 border-none focus:outline-none p-3 bg-emerald-100 rounded-md" name="" id="">
+
+            <div class="absolute right-3 top-1/2 -translate-y-1/2">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
 
         </div>
 
