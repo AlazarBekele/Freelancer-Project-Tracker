@@ -10,6 +10,13 @@ from .models import (
 
 from django.contrib.auth.admin import UserAdmin
 
+# Import the Orignal User
+from django.contrib.auth.models import User as OriginalUser
+from django.contrib.auth.admin import UserAdmin as OriginalUserAdmin
+
+# Register the Orginal User
+admin.site.register (OriginalUser, OriginalUserAdmin)
+
 class ProfileAddUser (admin.StackedInline):
 
     model = Profiles
