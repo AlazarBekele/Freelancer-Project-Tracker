@@ -1,32 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-
 from .models import AccountInfo
 
 User = get_user_model()
 
 class Sign_up (UserCreationForm):
-
-    # ROLE_CHOOES = [
-    #     ('client', 'Client'),
-    #     ('freelancer', 'Freelancer')
-    # ]
-
-    # WORK_ON = [
-    #     ('Website', 'Website'),
-    #     ('Video Editor', 'Video Editor'),
-    #     ('Account Finace', 'Account Finace'),
-    #     ('Website Design', 'Website Design'),
-    #     ('Human Resource', 'Human Resource'),
-    #     ('Software Engineering', 'Software Engineering'),
-    # ]
-
-    field_choose = forms.ChoiceField (label='Freelancer or Client', widget=forms.Select(attrs={
-
-        'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
-
-    }))
 
     first_name = forms.CharField (max_length=20,label='' , widget=forms.TextInput(attrs={
 
@@ -42,7 +21,7 @@ class Sign_up (UserCreationForm):
 
     }))
 
-    username = forms.CharField (max_length=10,label='' , widget=forms.TextInput(attrs={
+    username = forms.CharField (max_length=20,label='' ,widget=forms.TextInput(attrs={
 
         'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
         'placeholder' : 'username'
@@ -70,29 +49,10 @@ class Sign_up (UserCreationForm):
 
     }))
 
-    working_fields = forms.ChoiceField (label='Choose Your Field', widget=forms.Select(attrs={
-
-        'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
-
-    }))
-
     class Meta:
 
         model = AccountInfo
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'field_choose', 'password2', 'working_fields')
-
-    # def save(self, commit=True):
-
-    #     user = super().save(commit=False)
-    #     user.field_choose = self.cleaned_data['field_choose']
-    #     user.working_fields = self.cleaned_data['working_fields']
-
-    #     if commit:
-
-    #         user.save()
-
-    #     return user
-    
+        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
 class Sign_in (forms.Form):
 

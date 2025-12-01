@@ -1,8 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 
 # Create your models here.
+# Extract the User Profile's
 
 # By what extraction method do you use my extraction (Choose field 'client', 'freelancer')
 ROLE_CHOICE = (
@@ -19,28 +20,25 @@ WORK_ON = [
     ('software', 'Software Engineering'),
 ]
 
+class AccountInfo (models.Model):
+
+    first_name = models.CharField (max_length=20, unique=True, null=True, blank=True)
+    last_name = models.CharField (max_length=20, unique=True, null=True, blank=True)
+
+    # Username & Email
+    username = models.CharField (max_length=20, unique=True, null=True, blank=True)
+    email = models.EmailField (unique=True, null=True, blank=True)
+
+    password1 = models.CharField (max_length=10, null=True, blank=True)
+    password2 = models.CharField (max_length=10, null=True, blank=True)
+
+    def __str__(self):
+        return self.username
+
 class User(AbstractUser):
 
     field_choose = models.CharField (max_length=30, null=True, blank=True)
     working_fields = models.CharField (max_length=30, null=True, blank=True)
-
-
-class AccountInfo (AbstractBaseUser, PermissionsMixin):
-
-    first_name = models.CharField (max_length=20, null=True,blank=True)
-    last_name = models.CharField (max_length=20, null=True,blank=True)
-
-    # Username & Email Fields
-    username = models.CharField (max_length=8, unique=True, null=True,  blank=True)
-    email = models.EmailField (unique=True)
-
-    # Work Flow & Role Choices
-    field_choose = models.CharField (max_length=20, choices=ROLE_CHOICE)
-    working_fields = models.CharField (max_length=20, choices=WORK_ON)
-
-    # Password & Confirm
-    password1 = models.CharField (max_length=10)
-    password1 = models.CharField (max_length=10)
 
 class Profiles (models.Model):
 
