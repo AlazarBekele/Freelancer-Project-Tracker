@@ -40,7 +40,7 @@ class Sign_up (UserCreationForm):
 
     }))
 
-    username = forms.CharField (max_length=20,label='' , widget=forms.TextInput(attrs={
+    username = forms.CharField (max_length=10,label='' , widget=forms.TextInput(attrs={
 
         'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
         'placeholder' : 'username'

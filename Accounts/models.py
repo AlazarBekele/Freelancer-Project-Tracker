@@ -1,33 +1,42 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser, PermissionsMixin
 from django.conf import settings
 
 # Create your models here.
-# Extract the User Profile's
 
+# By what extraction method do you use my extraction (Choose field 'client', 'freelancer')
+ROLE_CHOICE = (
+    ('client', 'Client'),
+    ('freelancer', 'Freelancer')
+)
+
+WORK_ON = [
+    ('website', 'Website'),
+    ('videoEditer', 'Video Editor'),
+    ('AccountFinace', 'Account Finace'),
+    ('websitedesign', 'Website Design'),
+    ('HR', 'Human Resource'),
+    ('software', 'Software Engineering'),
+]
 
 class User(AbstractUser):
 
     field_choose = models.CharField (max_length=30, null=True, blank=True)
     working_fields = models.CharField (max_length=30, null=True, blank=True)
 
+class AccountInfo (AbstractBaseUser, PermissionsMixin):
+
+    first_name = models.CharField (max_length=20, null=True,blank=True)
+    last_name = models.CharField (max_length=20, null=True,blank=True)
+
+    # Username & Email Fields
+    username = models.CharField (max_length=8, unique=True, null=True,  blank=True)
+    email = models.EmailField (unique=True)
+
+    # Work Flow & Role Choices
+    field_choose = models.CharField (max_length=20, choices=)
+
 class Profiles (models.Model):
-
-    # By what extraction method do you use my extraction (Choose field 'client', 'freelancer')
-
-    ROLE_CHOICE = (
-        ('client', 'Client'),
-        ('freelancer', 'Freelancer')
-    )
-
-    WORK_ON = [
-        ('website', 'Website'),
-        ('videoEditer', 'Video Editor'),
-        ('AccountFinace', 'Account Finace'),
-        ('websitedesign', 'Website Design'),
-        ('HR', 'Human Resource'),
-        ('software', 'Software Engineering'),
-    ]
 
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     user_profile_img = models.ImageField (upload_to='profile_pic/', null=True, blank=True)
