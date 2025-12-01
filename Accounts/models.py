@@ -24,6 +24,7 @@ class User(AbstractUser):
     field_choose = models.CharField (max_length=30, null=True, blank=True)
     working_fields = models.CharField (max_length=30, null=True, blank=True)
 
+
 class AccountInfo (AbstractBaseUser, PermissionsMixin):
 
     first_name = models.CharField (max_length=20, null=True,blank=True)
@@ -34,7 +35,12 @@ class AccountInfo (AbstractBaseUser, PermissionsMixin):
     email = models.EmailField (unique=True)
 
     # Work Flow & Role Choices
-    field_choose = models.CharField (max_length=20, choices=)
+    field_choose = models.CharField (max_length=20, choices=ROLE_CHOICE)
+    working_fields = models.CharField (max_length=20, choices=WORK_ON)
+
+    # Password & Confirm
+    password1 = models.CharField (max_length=10)
+    password1 = models.CharField (max_length=10)
 
 class Profiles (models.Model):
 

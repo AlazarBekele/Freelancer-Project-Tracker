@@ -2,25 +2,27 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
+from .models import AccountInfo
+
 User = get_user_model()
 
 class Sign_up (UserCreationForm):
 
-    ROLE_CHOOES = [
-        ('client', 'Client'),
-        ('freelancer', 'Freelancer')
-    ]
+    # ROLE_CHOOES = [
+    #     ('client', 'Client'),
+    #     ('freelancer', 'Freelancer')
+    # ]
 
-    WORK_ON = [
-        ('Website', 'Website'),
-        ('Video Editor', 'Video Editor'),
-        ('Account Finace', 'Account Finace'),
-        ('Website Design', 'Website Design'),
-        ('Human Resource', 'Human Resource'),
-        ('Software Engineering', 'Software Engineering'),
-    ]
+    # WORK_ON = [
+    #     ('Website', 'Website'),
+    #     ('Video Editor', 'Video Editor'),
+    #     ('Account Finace', 'Account Finace'),
+    #     ('Website Design', 'Website Design'),
+    #     ('Human Resource', 'Human Resource'),
+    #     ('Software Engineering', 'Software Engineering'),
+    # ]
 
-    field_choose = forms.ChoiceField (choices=ROLE_CHOOES, label='Freelancer or Client', widget=forms.Select(attrs={
+    field_choose = forms.ChoiceField (label='Freelancer or Client', widget=forms.Select(attrs={
 
         'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
 
@@ -68,7 +70,7 @@ class Sign_up (UserCreationForm):
 
     }))
 
-    working_fields = forms.ChoiceField (choices=WORK_ON, label='Choose Your Field', widget=forms.Select(attrs={
+    working_fields = forms.ChoiceField (label='Choose Your Field', widget=forms.Select(attrs={
 
         'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
 
@@ -76,20 +78,20 @@ class Sign_up (UserCreationForm):
 
     class Meta:
 
-        model = User
+        model = AccountInfo
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'field_choose', 'password2', 'working_fields')
 
-    def save(self, commit=True):
+    # def save(self, commit=True):
 
-        user = super().save(commit=False)
-        user.field_choose = self.cleaned_data['field_choose']
-        user.working_fields = self.cleaned_data['working_fields']
+    #     user = super().save(commit=False)
+    #     user.field_choose = self.cleaned_data['field_choose']
+    #     user.working_fields = self.cleaned_data['working_fields']
 
-        if commit:
+    #     if commit:
 
-            user.save()
+    #         user.save()
 
-        return user
+    #     return user
     
 
 class Sign_in (forms.Form):
