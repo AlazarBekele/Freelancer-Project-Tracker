@@ -8,7 +8,7 @@ from .models import (
 
 from .forms import (
     Sign_up,
-    Sign_in,
+    Sign_in
 )
 
 from django.contrib.auth import login, logout, authenticate
@@ -123,9 +123,11 @@ def freelancer_page (request, id):
 
         return redirect ('Index')
 
+
+@login_required (login_url='/login/')
 def crud_info (request, username):
 
-    user = request.user.username
+    user = request.user
 
     context = {
         'user_profile' : user
