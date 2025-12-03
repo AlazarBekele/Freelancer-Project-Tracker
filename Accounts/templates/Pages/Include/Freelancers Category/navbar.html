@@ -8,15 +8,19 @@
 
             <div class="flex justify-evenly items-center gap-5">
 
-                {% if profile_img.user_profile_img %}
+                <div>
+
+                    {% if profile_img.user_profile_img %}
                     
                     <img class="mask-radial-at-center mask-radial-from-100% mask-r-from-30% w-17 " src="{{ profile_img.user_profile_img.url }}" alt="">
-                 
-                {% else %}
+                    
+                    {% else %}
 
-                    <h2>Profile</h2>
+                        <h2>Profile</h2>
 
-                {% endif %}
+                    {% endif %}
+
+                </div>
 
                 <div class="w-90 flex gap-2">
 
