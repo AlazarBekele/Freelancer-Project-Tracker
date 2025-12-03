@@ -5,7 +5,12 @@ from .models import AccountInfo
 
 User = get_user_model()
 
-class Sign_up (UserCreationForm):
+class Sign_up (forms.ModelForm):
+
+    class Meta:
+
+        model = AccountInfo
+        fields = '__all__'
 
     first_name = forms.CharField (max_length=20,label='' , widget=forms.TextInput(attrs={
 
@@ -48,11 +53,6 @@ class Sign_up (UserCreationForm):
         'placeholder' : 'Confirm Password'
 
     }))
-
-    class Meta:
-
-        model = AccountInfo
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
 class Sign_in (forms.Form):
 

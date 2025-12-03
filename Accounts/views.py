@@ -70,14 +70,6 @@ def loginPage (request):
 
     return render (request, 'Include/Log/LoginPage.html', context=context)
 
-# Set out the Extracted data
-# def client_dashboard (request):
-
-#     if request.user.profile.role != 'client':
-
-#         return redirect ("No_permission")
-
-#     return render (request, '')
 
 @login_required (login_url='/login/')
 def goto_pass (request):

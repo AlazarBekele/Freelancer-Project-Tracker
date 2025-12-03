@@ -22,6 +22,7 @@ WORK_ON = [
 
 class AccountInfo (models.Model):
 
+    # Name Container
     first_name = models.CharField (max_length=20, unique=True, null=True, blank=True)
     last_name = models.CharField (max_length=20, unique=True, null=True, blank=True)
 
@@ -29,8 +30,9 @@ class AccountInfo (models.Model):
     username = models.CharField (max_length=20, unique=True, null=True, blank=True)
     email = models.EmailField (unique=True, null=True, blank=True)
 
-    password1 = models.CharField (max_length=10, null=True, blank=True)
-    password2 = models.CharField (max_length=10, null=True, blank=True)
+    # Password Container
+    # password1 = models.CharField (max_length=10, null=True, blank=True)
+    # password2 = models.CharField (max_length=10, null=True, blank=True)
 
     def __str__(self):
         return self.username
