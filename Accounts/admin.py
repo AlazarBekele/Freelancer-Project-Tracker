@@ -5,8 +5,7 @@ from .models import (
     GoInto,
     ProfilePicture,
     Profiles,
-    User,
-    AccountInfo
+    User
 )
 
 from django.contrib.auth.admin import UserAdmin
@@ -36,6 +35,5 @@ admin.site.register (ProfilePicture)
 admin.site.register (Profiles)
 
 # User Add Field
-admin.site.register (AccountInfo)
 
 admin.site.register (User, CustomeAdmin)

@@ -1,16 +1,41 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from .models import AccountInfo
 
 User = get_user_model()
 
-class Sign_up (forms.ModelForm):
+class Sign_up (UserCreationForm):
 
     class Meta:
 
-        model = AccountInfo
+        model = User
         fields = '__all__'
+
+    ROLE_CHOOES = [
+        ('client', 'Client'),
+        ('freelancer', 'Freelancer')
+    ]
+
+    WORK_ON = [
+        ('Website', 'Website'),
+        ('Video Editor', 'Video Editor'),
+        ('Account Finace', 'Account Finace'),
+        ('Website Design', 'Website Design'),
+        ('Human Resource', 'Human Resource'),
+        ('Software Engineering', 'Software Engineering'),
+    ]
+
+    field_choose = forms.ChoiceField (choices=ROLE_CHOOES, label='Freelancer or Client', widget=forms.Select(attrs={
+
+        'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
+
+    }))
+
+    working_fields = forms.ChoiceField (choices=WORK_ON, label='Choose Your Field', widget=forms.Select(attrs={
+
+        'class' : 'w-full border-none focus:outline-none p-3 bg-white rounded-md',
+
+    }))
 
     first_name = forms.CharField (max_length=20,label='' , widget=forms.TextInput(attrs={
 

@@ -20,23 +20,6 @@ WORK_ON = [
     ('software', 'Software Engineering'),
 ]
 
-class AccountInfo (models.Model):
-
-    # Name Container
-    first_name = models.CharField (max_length=20, unique=True, null=True, blank=True)
-    last_name = models.CharField (max_length=20, unique=True, null=True, blank=True)
-
-    # Username & Email
-    username = models.CharField (max_length=20, unique=True, null=True, blank=True)
-    email = models.EmailField (unique=True, null=True, blank=True)
-
-    # Password Container
-    # password1 = models.CharField (max_length=10, null=True, blank=True)
-    # password2 = models.CharField (max_length=10, null=True, blank=True)
-
-    def __str__(self):
-        return self.username
-
 class User(AbstractUser):
 
     field_choose = models.CharField (max_length=30, null=True, blank=True)
@@ -46,6 +29,9 @@ class Profiles (models.Model):
 
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     user_profile_img = models.ImageField (upload_to='profile_pic/', null=True, blank=True)
+
+    # Username Unique
+    username = models.CharField (max_length=20, unique=True, null=True, blank=True)
 
     def __str__(self):
         return self.user.username
