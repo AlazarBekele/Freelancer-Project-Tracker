@@ -95,6 +95,8 @@ def goto_pass (request):
 @login_required (login_url='/login/')
 def freelancer_page (request, id):
 
+    # Start Here Follow
+
     # Load profile Picture
     if request.user.id == id:
 
