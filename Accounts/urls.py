@@ -4,6 +4,7 @@ from .views import (
     loginPage,
     goto_pass,
     freelancer_page,
+    crud_info
 )
 
 from django.conf import settings
@@ -14,6 +15,7 @@ urlpatterns = [
     path ('login/', loginPage, name='Login'),
     path ('gotopass/', goto_pass, name='Pass'),
     path ('FTP.com.admin/<int:id>', freelancer_page, name='Freelancers'),
+    path ('Update/<str:username>', crud_info, name='update')
 ]
 
 if settings.DEBUG:

@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User as auth_user
 from .models import (
     Welcome,
     GoInto,
@@ -10,7 +11,6 @@ from .forms import (
     Sign_in,
 )
 
-from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 
@@ -122,3 +122,13 @@ def freelancer_page (request, id):
     else:
 
         return redirect ('Index')
+
+def crud_info (request, username):
+
+    user = request.user.username
+
+    context = {
+        'user_profile' : user
+    }
+
+    return render (request, 'Pages/Include/Edit Profile/CRUD.html', context=context)
