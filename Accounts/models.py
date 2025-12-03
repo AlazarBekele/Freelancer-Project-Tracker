@@ -24,9 +24,6 @@ class User(AbstractUser):
 
     field_choose = models.CharField (max_length=30, null=True, blank=True)
     working_fields = models.CharField (max_length=30, null=True, blank=True)
-    
-    # Unique Username & Password
-    username = models.CharField (max_length=20, unique=True, null=True, blank=True)
 
 class Profiles (models.Model):
 

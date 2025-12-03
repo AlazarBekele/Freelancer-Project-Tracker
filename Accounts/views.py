@@ -51,7 +51,7 @@ def loginPage (request):
 
     accountIMG = Welcome.objects.get (id=3)
 
-    sign_up = Sign_up (request.POST or None)
+    sign_up = Sign_up (request.POST)
 
     if request.method == 'POST':
 
@@ -60,6 +60,10 @@ def loginPage (request):
             sign_up.save()
 
             return redirect ('Index')
+        
+        else:
+
+            return render (request, 'Include/Log/LoginPage.html', {'accountCreate' : accountIMG, 'signup' : sign_up})
 
     context = {
 

@@ -7,9 +7,17 @@ User = get_user_model()
 class Sign_up (UserCreationForm):
 
     class Meta:
-
         model = User
-        fields = '__all__'
+        fields = [
+            'first_name',
+            'last_name',
+            'username',
+            'email',
+            'field_choose',
+            'working_fields',
+            'password1',
+            'password2',
+        ]
 
     ROLE_CHOOES = [
         ('client', 'Client'),
