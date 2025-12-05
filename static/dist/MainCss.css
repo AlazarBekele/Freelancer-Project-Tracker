@@ -272,6 +272,12 @@
   .w-1\/5 {
     width: calc(1/5 * 100%);
   }
+  .w-1\/6 {
+    width: calc(1/6 * 100%);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
   .w-13 {
     width: calc(var(--spacing) * 13);
   }
@@ -405,6 +411,9 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
@@ -544,6 +553,9 @@
   }
   .bg-center {
     background-position: center;
+  }
+  .object-cover {
+    object-fit: cover;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);

@@ -14,18 +14,14 @@
 
                 {% for image in images %}
 
-                    <div>
+                    <div class="">
 
-                        <img src="{{ image.user_profile_img.url }}" alt="">
+                        <img class="w-10 h-10  rounded-full object-cover" src="{{ image.user_profile_img.url }}" alt="">
 
                         <p>@{{ image.user.username }} {{ image.user.id }}</p>
 
                     </div>
 
-                {% endfor %}
-
-                {% for image in images %}
-                    <img src="{{ image.user_profile_img.url }}" alt="">
                 {% endfor %}
 
             </div>
