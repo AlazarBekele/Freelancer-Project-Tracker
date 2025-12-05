@@ -96,6 +96,11 @@ def goto_pass (request):
 def freelancer_page (request, id):
 
     # Start Here Follow
+    follow_info = Profiles.objects.exclude(user=request.user)
+
+    # Followers Id
+    followers_Profile = Profiles.objects.get(user=request.user)
+    followers_id = followers_Profile.follow_suggetion.values_list('id', flat=True)
 
     # Load profile Picture
     if request.user.id == id:
@@ -114,7 +119,9 @@ def freelancer_page (request, id):
 
     context = {
         'user' : user,
-        'profile_img' : profile_img
+        'profile_img' : profile_img,
+        'follow_info' : follow_info,
+        'followers_id' : followers_id
     }
 
     if request.user.is_authenticated:
