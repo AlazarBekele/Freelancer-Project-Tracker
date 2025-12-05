@@ -3,6 +3,9 @@ from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.contrib.auth.models import User as orginalUserModel
 
+from django.utils import timezone
+from datetime import timedelta
+
 # Create your models here.
 # Extract the User Profile's
 
@@ -33,7 +36,11 @@ class Profiles (models.Model):
 
     # Follow People
     follow_suggetion = models.ManyToManyField ("self", related_name="followed_by", symmetrical=False, blank=True, null=True)
-    date_modify = models.DateTimeField (orginalUserModel, auto_now=True, blank=True, null=True)
+    last_seen = models.DateTimeField (auto_now=True, blank=True, null=True)
+
+    def is_online (self):
+
+        return timezone.now() - self.last_seen < timedelta(minutes=5)
 
     def __str__(self):
         return self.user.username
