@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from django.contrib.auth.models import User as orginalUserModel
 
 # Create your models here.
 # Extract the User Profile's
@@ -29,6 +30,10 @@ class Profiles (models.Model):
 
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     user_profile_img = models.ImageField (upload_to='profile_pic/', null=True, blank=True)
+
+    # Follow People
+    follow_suggetion = models.ManyToManyField ("self", related_name="followed_by", symmetrical=False, blank=True, null=True)
+    date_modify = models.DateTimeField (orginalUserModel, auto_now=True, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
