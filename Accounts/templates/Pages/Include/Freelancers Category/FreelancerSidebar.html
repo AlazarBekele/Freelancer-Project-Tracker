@@ -4,9 +4,7 @@
 
     <div>
 
-        <h1>Hellow</h1>
-
-        <div>
+        <div class="p-4">
 
             <div>
 
@@ -14,11 +12,21 @@
 
                 {% for image in images %}
 
-                    <div class="">
+                    <div class="flex flex-row justify-start items-center">
 
-                        <img class="w-10 h-10  rounded-full object-cover" src="{{ image.user_profile_img.url }}" alt="">
+                        <div class="p-3">
 
-                        <p>@{{ image.user.username }} {{ image.user.id }}</p>
+
+                            <img class="w-10 h-10  rounded-full object-cover" src="{{ image.user_profile_img.url }}" alt="">
+
+                        </div>
+
+                        <div>
+
+                            <p class="m-0">{{ image.user.first_name }} {{ image.user.last_name }}</p>
+                            <p class="text-xs text-zinc-500">@{{ image.user.username }}</p>
+
+                        </div>
 
                     </div>
 
