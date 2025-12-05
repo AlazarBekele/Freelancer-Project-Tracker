@@ -12,28 +12,20 @@
 
                 <p>Follow Suggetion @{{ request.user.username }}</p>
 
-                {% for profiles in follow_info %}
+                {% for image in images %}
 
                     <div>
 
-                        {% if profiles.user.user_profile_img %}
+                        <img src="{{ image.user_profile_img.url }}" alt="">
 
-                            <img src="{{ profiles.user.user_profile_img.url }}" alt="">
-
-                        {% else %}
-
-                        <h1>No Img</h1>
-
-                        {% endif %}
-
-                        <p>@{{ profiles.user.username }} {{ profiles.user.id }}</p>
+                        <p>@{{ image.user.username }} {{ image.user.id }}</p>
 
                     </div>
 
                 {% endfor %}
 
-                {% for ids in followers_id %}
-                    <p>{{ids }}</p>
+                {% for image in images %}
+                    <img src="{{ image.user_profile_img.url }}" alt="">
                 {% endfor %}
 
             </div>

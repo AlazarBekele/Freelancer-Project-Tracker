@@ -101,6 +101,8 @@ def freelancer_page (request, id):
     # Followers Id
     followers_Profile = Profiles.objects.get(user=request.user)
     followers_id = followers_Profile.follow_suggetion.values_list('id', flat=True)
+    
+    img = Profiles.objects.filter(id__in=followers_id)
 
     # Load profile Picture
     if request.user.id == id:
@@ -121,7 +123,8 @@ def freelancer_page (request, id):
         'user' : user,
         'profile_img' : profile_img,
         'follow_info' : follow_info,
-        'followers_id' : followers_id
+        'followers_id' : followers_id,
+        'images' : img
     }
 
     if request.user.is_authenticated:
