@@ -40,7 +40,11 @@ class Profiles (models.Model):
 
     def is_online (self):
 
-        return timezone.now() - self.last_seen < timedelta(minutes=5)
+        if self.last_seen:
+            
+            return timezone.now() - self.last_seen < timedelta(minutes=5)
+        
+        return False
 
     def __str__(self):
         return self.user.username
