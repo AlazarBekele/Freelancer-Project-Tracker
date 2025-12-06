@@ -119,7 +119,6 @@ def freelancer_page (request, id):
         if forms_note.is_valid ():
 
             forms_note.save()
-            return redirect ('Index')
         
     else:
 
