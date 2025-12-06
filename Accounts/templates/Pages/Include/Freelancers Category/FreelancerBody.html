@@ -4,14 +4,33 @@
 
         <div class="w-5/6 h-25 bg-white m-5">
 
-            <div>
+            <div class="grid grid-cols-[1fr_1fr]">
 
-                <img class="w-10 h-10 rounded-full object-cover" src="{{  }}" alt="">
+                <div class="flex justify-center items-center gap-4">
+
+                    {% if profile_img.user_profile_img %}
+
+                        <img class="w-15 h-15 rounded-full object-cover" src="{{ profile_img.user_profile_img.url }}" alt="">
+                        
+                    {% endif %}
+                        
+                    <div>
+
+                        <p class="font-semibold">{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                        <p class="text-xs text-zinc-500">{{ request.user.working_fields }}</p>
+
+                    </div>
+
+                </div>
 
                 <div>
 
-                    <p>Hellow</p>
-                    <p>Hellow</p>
+                    <form method="post">
+
+                        {% csrf_token %}
+                        {{ notes.as_p }}
+
+                    </form>
 
                 </div>
 

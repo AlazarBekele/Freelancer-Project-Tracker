@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
+from .models import Profiles
 
 User = get_user_model()
 
@@ -102,3 +103,16 @@ class Sign_in (forms.Form):
         'placeholder' : "Password"
 
     }))
+
+
+class noteform (forms.ModelForm):
+
+    note_forms = forms.CharField (max_length=20, widget=forms.TextInput(attrs={
+
+        'class' : 'text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3'
+
+    }))
+
+    class Meta:
+        model = Profiles
+        fields = ['note_forms']

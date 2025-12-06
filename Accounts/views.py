@@ -9,7 +9,8 @@ from .models import (
 
 from .forms import (
     Sign_up,
-    Sign_in
+    Sign_in,
+    noteform
 )
 
 from django.contrib.auth import login, logout, authenticate
@@ -108,6 +109,16 @@ def freelancer_page (request, id):
     # Followers Counter
     Follow.objects.get_or_create (followers=request.user)
 
+    # Note
+    notes = noteform (request.POST or None)
+
+    if request.method == 'POST':
+
+        if notes.is_valid():
+
+            notes.save()
+            return redirect ('Freelancers')
+
     # Load profile Picture
     if request.user.id == id:
 
@@ -128,7 +139,8 @@ def freelancer_page (request, id):
         'profile_img' : profile_img,
         'follow_info' : follow_info,
         'followers_id' : followers_id,
-        'images' : img
+        'images' : img,
+        'notes' : notes
     }
 
     if request.user.is_authenticated:
