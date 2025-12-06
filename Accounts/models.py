@@ -50,6 +50,11 @@ class Profiles (models.Model):
         return self.user.username
     
 
+class Follow (models.Model):
+
+    followers = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="followers")
+    
+
 class ProfilePicture (models.Model):
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

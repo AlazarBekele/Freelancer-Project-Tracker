@@ -3,7 +3,8 @@ from django.contrib.auth.models import User as auth_user
 from .models import (
     Welcome,
     GoInto,
-    Profiles
+    Profiles,
+    Follow
 )
 
 from .forms import (
@@ -103,6 +104,9 @@ def freelancer_page (request, id):
     followers_id = followers_Profile.follow_suggetion.values_list('id', flat=True)
     
     img = Profiles.objects.filter(id__in=followers_id).exclude (user=request.user)
+
+    # Followers Counter
+    Follow.objects.get_or_create (followers=request.user)
 
     # Load profile Picture
     if request.user.id == id:
