@@ -110,14 +110,20 @@ def freelancer_page (request, id):
     Follow.objects.get_or_create (followers=request.user)
 
     # Note
-    notes = noteform (request.POST or None)
+
+    profile = request.user.profiles
 
     if request.method == 'POST':
 
-        if notes.is_valid():
+        forms_note = noteform (request.POST, request.FILES, instance=profile)
+        if forms_note.is_valid ():
 
-            notes.save()
-            return redirect ('Freelancers')
+            forms_note.save()
+            return redirect ('Index')
+        
+    else:
+
+        forms_note = noteform (instance=profile)
 
     # Load profile Picture
     if request.user.id == id:
@@ -140,7 +146,8 @@ def freelancer_page (request, id):
         'follow_info' : follow_info,
         'followers_id' : followers_id,
         'images' : img,
-        'notes' : notes
+        'forms_note' : forms_note,
+        'profile' : profile
     }
 
     if request.user.is_authenticated:

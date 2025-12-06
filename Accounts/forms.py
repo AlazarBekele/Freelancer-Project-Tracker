@@ -107,9 +107,10 @@ class Sign_in (forms.Form):
 
 class noteform (forms.ModelForm):
 
-    note_forms = forms.CharField (max_length=20, widget=forms.TextInput(attrs={
+    note_forms = forms.CharField (max_length=20, label='', widget=forms.TextInput(attrs={
 
-        'class' : 'text-lime-600 focus:outline-none border-b-1 border-lime-500 placeholder:text-lime-600/40 placeholder:font-thin px-3'
+        'class' : 'pl-3 border-none focus:outline-none p-2 bg-emerald-100 rounded-md text-green-600 w-full',
+        'placeholder' : 'add note...'
 
     }))
 

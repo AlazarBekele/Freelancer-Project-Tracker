@@ -4,7 +4,7 @@
 
         <div class="w-5/6 h-25 bg-white m-5">
 
-            <div class="grid grid-cols-[1fr_1fr]">
+            <div class="grid grid-cols-[1fr_1fr] justify-center items-center gap-1">
 
                 <div class="flex justify-center items-center gap-4">
 
@@ -23,12 +23,18 @@
 
                 </div>
 
-                <div>
+                <div class="w-50">
 
-                    <form method="post">
+                    <form method="post" class="relative">
 
                         {% csrf_token %}
-                        {{ notes.as_p }}
+                        {{ forms_note.note_forms }}
+
+                        <div class="absolute right-3 top-1/2 -translate-y-1/2">
+
+                            <button type="submit" class="cursor-pointer"><i class="fa-solid fa-arrow-left text-xl rotate-180 text-green-800"></i></button>
+
+                        </div>
 
                     </form>
 
