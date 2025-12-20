@@ -168,3 +168,9 @@ def crud_info (request, username):
     }
 
     return render (request, 'Pages/Include/Edit Profile/CRUD.html', context=context)
+
+
+@login_required (login_url='/login/')
+def publish_page_both (request, username):
+
+    return render (request, 'Include/Publish/Publish.html')
