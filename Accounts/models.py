@@ -49,7 +49,7 @@ class Profiles (models.Model):
     def __str__(self):
         return self.user.username
     
-    note_forms = models.CharField (max_length=20, null=True, blank=True)
+    note_forms = models.CharField (max_length=100, null=True, blank=True)
     
 
 class Follow (models.Model):
