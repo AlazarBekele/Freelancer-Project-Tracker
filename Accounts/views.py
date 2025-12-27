@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User as auth_user
+
 from .models import (
     Welcome,
     GoInto,
@@ -10,7 +11,8 @@ from .models import (
 from .forms import (
     Sign_up,
     Sign_in,
-    noteform
+    noteform,
+    Publish_form
 )
 
 from django.contrib.auth import login, logout, authenticate
@@ -23,7 +25,6 @@ def index (request):
     form = Sign_in (request.POST or None)
 
     if request.method == 'POST':
-
         if form.is_valid():
 
             username = request.POST.get('username')
@@ -34,33 +35,34 @@ def index (request):
             if user is not None:
 
                 login (request, user)
-
                 return redirect ('Pass')
 
     WelIMG = Welcome.objects.get (id=1)
 
     context = {
-
         'welcomeIMG' : WelIMG,
         'form' : form
-
     }
 
-    return render (request, 'index.html', context=context)
+    # If the user is auth... no login again
+    if request.user.is_authenticated:
+
+        return redirect ('Pass')
+    
+    else:
+
+        return render (request, 'index.html', context=context)
 
 
 def loginPage (request):
 
     accountIMG = Welcome.objects.get (id=3)
-
     sign_up = Sign_up (request.POST)
 
     if request.method == 'POST':
-
         if sign_up.is_valid():
 
             sign_up.save()
-
             return redirect ('Index')
         
         else:
@@ -68,10 +70,8 @@ def loginPage (request):
             return render (request, 'Include/Log/LoginPage.html', {'accountCreate' : accountIMG, 'signup' : sign_up})
 
     context = {
-
         'accountCreate' : accountIMG,
         'signup' : sign_up
-
     }
 
     return render (request, 'Include/Log/LoginPage.html', context=context)
@@ -85,10 +85,8 @@ def goto_pass (request):
     DashboardIMG = GoInto.objects.get(id=1)
 
     context = {
-
         'DashboardIMG' : DashboardIMG,
         'logged_data' : user
-
     }
 
     return render (request, 'Include/Goto/pass.html', context=context)
@@ -103,14 +101,11 @@ def freelancer_page (request, id):
     # Followers Id
     followers_Profile = Profiles.objects.get(user=request.user)
     followers_id = followers_Profile.follow_suggetion.values_list('id', flat=True)
-    
     img = Profiles.objects.filter(id__in=followers_id).exclude (user=request.user)
 
     # Followers Counter
     Follow.objects.get_or_create (followers=request.user)
-
-    # Note
-
+    
     profile = request.user.profiles
 
     if request.method == 'POST':
@@ -173,4 +168,21 @@ def crud_info (request, username):
 @login_required (login_url='/login/')
 def publish_page_both (request, username):
 
-    return render (request, 'Include/Publish/Publish.html')
+    PublishForm = Publish_form (request.POST or None)
+
+    if request.method == 'POST':
+
+        if PublishForm.is_valid():
+
+            PublishForm.save()
+            return redirect ('Pass')
+
+    # else:
+
+    #     return redirect ('Pass')
+    
+    context = {
+        'Publish_Form_Context' : PublishForm
+    }
+
+    return render (request, 'Pages/Include/Publish/Publish.html', context=context)

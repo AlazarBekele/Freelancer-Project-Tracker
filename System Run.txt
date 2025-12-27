@@ -3,3 +3,17 @@ __________________________________________
 
 npm run dev
 
+__________________________________________
+
+25-12-25 Push
+
+- Work on Authentication
+    -> If the user is already login, continue usin with out auth... any more
+
+- Work on Upload or Post Page
+
+    -> Add Publish url on the post Btn
+    -> Fix the Publish page Path
+    -> Make Publish Page
+    -> Add Form to Custom Inputs
+    -> Create Page to Publish

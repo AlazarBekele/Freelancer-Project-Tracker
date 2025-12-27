@@ -5,7 +5,8 @@ from .models import (
     GoInto,
     ProfilePicture,
     Profiles,
-    User
+    User,
+    Make_Publish_Post
 )
 
 from django.contrib.auth.admin import UserAdmin
@@ -33,6 +34,7 @@ admin.site.register (AccountTracker)
 admin.site.register (GoInto)
 admin.site.register (ProfilePicture)
 admin.site.register (Profiles)
+admin.site.register (Make_Publish_Post)
 
 # User Add Field
 

@@ -29,6 +29,7 @@ class User(AbstractUser):
     field_choose = models.CharField (max_length=30, null=True, blank=True)
     working_fields = models.CharField (max_length=30, null=True, blank=True)
 
+
 class Profiles (models.Model):
 
     user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -90,3 +91,14 @@ class GoInto (models.Model):
 
     def __str__(self):
         return self.DashName
+    
+
+class Make_Publish_Post (models.Model):
+
+    Title = models.CharField (max_length=100, null=False, blank=False)
+    Discription = models.TextField (null=True, blank=True)
+    Publish_IMG = models.ImageField (upload_to='UserPost/Published')
+
+    # Count Like & collect Messages
+    Rate = models.IntegerField ()
+    Messages = models.CharField (max_length=255)

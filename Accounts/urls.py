@@ -1,4 +1,5 @@
 from django.urls import path
+
 from .views import (
     index,
     loginPage,
@@ -17,7 +18,7 @@ urlpatterns = [
     path ('gotopass/', goto_pass, name='Pass'),
     path ('FTP.com.admin/<int:id>', freelancer_page, name='Freelancers'),
     path ('Update/<str:username>', crud_info, name='update'),
-    path ('publish/<str:username>', publish_page_both, name='post')
+    path ('publish/<str:username>', publish_page_both, name='PublishPage')
 ]
 
 if settings.DEBUG:

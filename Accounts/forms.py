@@ -1,7 +1,10 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from .models import Profiles
+from .models import (
+    Profiles,
+    Make_Publish_Post
+)
 
 User = get_user_model()
 
@@ -117,3 +120,36 @@ class noteform (forms.ModelForm):
     class Meta:
         model = Profiles
         fields = ['note_forms']
+
+
+class Publish_form (forms.ModelForm):
+
+    class Meta:
+        model = Make_Publish_Post
+        fields = ['Title', 'Discription', 'Publish_IMG']
+
+    widget = {
+
+        'Title' : forms.TextInput (attrs={
+
+            'class' : 'pl-3 border-none focus:outline-none p-2 bg-emerald-100 rounded-md text-green-600 w-full',
+            'placeholder' : 'Write The Title',
+            'lable' : ''
+
+        }),
+
+        'Discription' : forms.Textarea (attrs={
+
+            'class' : 'pl-3 border-none focus:outline-none p-2 bg-emerald-100 rounded-md text-green-600 w-full',
+            'placeholder' : 'Write The Title',
+            'label' : ''
+
+        }),
+
+        'Publish_IMG' : forms.ClearableFileInput (attrs={
+
+            'class' : 'pl-3 border-none focus:outline-none p-2 bg-emerald-100 rounded-md text-green-600 w-full'
+
+        })
+
+    }
