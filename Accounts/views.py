@@ -168,7 +168,7 @@ def crud_info (request, username):
 @login_required (login_url='/login/')
 def publish_page_both (request, username):
 
-    PublishForm = Publish_form (request.POST or None)
+    PublishForm = Publish_form (request.POST, request.FILES)
 
     if request.method == 'POST':
 
@@ -176,13 +176,9 @@ def publish_page_both (request, username):
 
             PublishForm.save()
             return redirect ('Pass')
-
-    # else:
-
-    #     return redirect ('Pass')
     
     context = {
         'Publish_Form_Context' : PublishForm
     }
 
-    return render (request, 'Pages/Include/Publish/Publish.html', context=context)
+    return render (request, 'Pages/Publish/Publish.html', context=context)

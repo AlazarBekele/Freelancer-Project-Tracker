@@ -128,27 +128,26 @@ class Publish_form (forms.ModelForm):
         model = Make_Publish_Post
         fields = ['Title', 'Discription', 'Publish_IMG']
 
-        widget = {
+        widgets = {
 
             'Title' : forms.TextInput (attrs={
 
-                'class' : 'border',
+                'class' : 'border p-2 rounded-md w-full placeholder:text-green-400',
                 'placeholder' : 'Write The Title',
-                'lable' : ''
+                'label' : ''
 
             }),
 
             'Discription' : forms.Textarea (attrs={
 
-                'class' : 'pl-3 border-none focus:outline-none p-2 bg-emerald-100 rounded-md text-green-600 w-full',
-                'placeholder' : 'Write The Title',
+                'placeholder' : 'border p-2 rounded-md w-full placeholder:text-green-400',
                 'label' : ''
 
             }),
 
             'Publish_IMG' : forms.ClearableFileInput (attrs={
 
-                'class' : 'pl-3 border-none focus:outline-none p-2 bg-emerald-100 rounded-md text-green-600 w-full'
+                'class' : 'w-full'
 
             })
 
