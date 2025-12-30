@@ -132,7 +132,7 @@ class Publish_form (forms.ModelForm):
 
             'Title' : forms.TextInput (attrs={
 
-                'class' :  'bg-white p-2 rounded-md w-1/2 placeholder:text-gray-500',
+                'class' :  'bg-white p-2 rounded-md w-1/2 placeholder:text-gray-500 shadow-md',
                 'placeholder' : 'Write The Title',
                 'label' : ''
 
@@ -140,7 +140,7 @@ class Publish_form (forms.ModelForm):
 
             'Discription' : forms.Textarea (attrs={
 
-                'class' : 'bg-white p-2 rounded-md w-full placeholder:text-gray-500',
+                'class' : 'bg-white p-2 rounded-md w-full placeholder:text-gray-500 shadow-md',
                 'placeholder' : 'Discribe your post',
                 'label' : ''
 
@@ -148,14 +148,14 @@ class Publish_form (forms.ModelForm):
 
             'Publish_IMG' : forms.ClearableFileInput (attrs={
 
-                'class' : 'bg-gray-100 p-2 rounded-md w-full placeholder:text-gray-500',
+                'class' : 'bg-gray-100 p-2 rounded-md w-full placeholder:text-gray-500 shadow-md',
                 'placeholder' : 'Upload Photo'
 
             }),
 
             'working_fields' : forms.Select (attrs={
 
-                'class' : 'bg-white p-2 rounded-md w-1/2 placeholder:text-gray-500',
+                'class' : 'bg-white p-2 rounded-md w-1/2 placeholder:text-gray-500 shadow-md',
 
             })
 

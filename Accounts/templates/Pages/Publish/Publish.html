@@ -6,29 +6,16 @@
     <title>FPT | Post Page</title>
     {% include "Pages/Include/Header/Head.html" %}
 
-    <style>
-
-        .PublishIMGBack {
-            width: 100%;
-            height: 100vh;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-image: url('{% static "Image/PublishPageBackground/PublishBack.jpg" %}');
-        }
-
-    </style>
-
-<body class="PublishIMGBack">
+<body class="bg-emerald-50">
 
     <div class="w-1/2">
 
         <div>
 
-            <form class="flex flex-col w-3/5" method="post" enctype="multipart/form-data">
+            <form class="flex flex-col w-3/5 gap-y-2" method="post" enctype="multipart/form-data">
 
                 {% csrf_token %}
-                <div class="flex">
+                <div class="flex gap-x-2">
 
                     {{ Publish_Form_Context.Title }}
                     {{ Publish_Form_Context.working_fields }}
