@@ -27,3 +27,9 @@ __________________________________________
      ----------//-----------
     -> Fully Work the Post Page
     -> Start Displaying the Post form Latest - Oldest
+
+    ----------//-----------
+
+    -> How to get the Publisher Profile?
+    -> Add Publisher On the Post model
+    -> Try To get Publisher data

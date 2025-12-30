@@ -115,3 +115,9 @@ class Make_Publish_Post (models.Model):
     # Count Like & collect Messages
     Rate = models.IntegerField (null=True, blank=True)
     Messages = models.CharField (max_length=255, null=True, blank=True)
+
+    # Created Date
+    create_info = models.DateField (auto_created=True, auto_now_add=True, null=True, blank=True)
+
+    #Add Publisher Profile Info
+    Publisher = models.ForeignKey(User, on_delete=models.CASCADE)

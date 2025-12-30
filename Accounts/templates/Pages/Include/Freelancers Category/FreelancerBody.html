@@ -56,7 +56,11 @@
 
             <div>
 
-                
+                {% for Info in Info_Publisher %}
+
+                    {{ Info.Publisher.username }}
+
+                {% endfor %}
 
             </div>
 

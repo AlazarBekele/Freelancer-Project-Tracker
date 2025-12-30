@@ -5,7 +5,8 @@ from .models import (
     Welcome,
     GoInto,
     Profiles,
-    Follow
+    Follow,
+    Make_Publish_Post
 )
 
 from .forms import (
@@ -14,6 +15,8 @@ from .forms import (
     noteform,
     Publish_form
 )
+
+from django.shortcuts import get_object_or_404
 
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -105,6 +108,15 @@ def freelancer_page (request, id):
 
     # Followers Counter
     Follow.objects.get_or_create (followers=request.user)
+
+    # -> Start Displaying the Post form Latest - Oldest
+    Displaying = Make_Publish_Post.objects.order_by('-create_info')
+    # Get Publisher Profile Data
+    post = get_object_or_404 (Make_Publish_Post, id=id)
+    Publisher = post.Publisher
+    Profile_Publisher = Publisher.profile
+
+    info_publisher = Make_Publish_Post.objects.select_related ('Publisher', 'Publisher__profile').order_by ('-')
     
     profile = request.user.profiles
 
@@ -141,7 +153,9 @@ def freelancer_page (request, id):
         'followers_id' : followers_id,
         'images' : img,
         'forms_note' : forms_note,
-        'profile' : profile
+        'profile' : profile,
+        'Displaying' : Displaying,
+        'Info_Publisher' : info_publisher
     }
 
     if request.user.is_authenticated:
