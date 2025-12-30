@@ -21,3 +21,4 @@ __________________________________________
     /// 30-12-25
 
     -> Make Post Page design
+    -> Defualt the work_field category inside Publish model

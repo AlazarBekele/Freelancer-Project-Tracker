@@ -126,7 +126,7 @@ class Publish_form (forms.ModelForm):
 
     class Meta:
         model = Make_Publish_Post
-        fields = ['Title', 'Discription', 'Publish_IMG']
+        fields = ['Title', 'Discription', 'Publish_IMG', 'working_fields']
 
         widgets = {
 
@@ -150,6 +150,12 @@ class Publish_form (forms.ModelForm):
 
                 'class' : 'bg-gray-100 p-2 rounded-md w-2/5 placeholder:text-gray-500',
                 'placeholder' : 'Upload Photo'
+
+            }),
+
+            'working_fields' : forms.Select (attrs={
+
+                'class' : 'bg-white p-2 rounded-md w-2/5 placeholder:text-gray-500',
 
             })
 

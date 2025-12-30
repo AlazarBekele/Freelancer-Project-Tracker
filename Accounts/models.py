@@ -24,6 +24,14 @@ WORK_ON = [
     ('software', 'Software Engineering'),
 ]
 
+class Account_Post_Category (models.Model):
+
+    category_name = models.CharField (max_length=15)
+
+    def __str__(self):
+        return self.category_name
+
+
 class User(AbstractUser):
 
     field_choose = models.CharField (max_length=30, null=True, blank=True)
@@ -98,6 +106,7 @@ class Make_Publish_Post (models.Model):
     Title = models.CharField (max_length=100, null=False, blank=False)
     Discription = models.TextField (null=True, blank=True)
     Publish_IMG = models.ImageField (upload_to='UserPost/Published')
+    working_fields = models.CharField (choices=WORK_ON, null=True, blank=True)
 
     # Count Like & collect Messages
     Rate = models.IntegerField ()
