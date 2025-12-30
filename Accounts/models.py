@@ -113,5 +113,5 @@ class Make_Publish_Post (models.Model):
     working_fields = models.CharField (choices=WORK_ON, default='draft')
 
     # Count Like & collect Messages
-    Rate = models.IntegerField ()
-    Messages = models.CharField (max_length=255)
+    Rate = models.IntegerField (null=True, blank=True)
+    Messages = models.CharField (max_length=255, null=True, blank=True)

@@ -24,3 +24,5 @@ __________________________________________
     -> Defualt the work_field category inside Publish model
     -> Fix the grid system
     -> Remove background, Change Color
+     ----------//-----------
+    -> Fully Work the Post Page

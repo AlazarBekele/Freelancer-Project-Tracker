@@ -155,7 +155,7 @@ class Publish_form (forms.ModelForm):
 
             'working_fields' : forms.Select (attrs={
 
-                'class' : 'bg-white p-2 rounded-md w-1/2 placeholder:text-gray-500 shadow-md',
+                'class' : 'bg-white p-2 rounded-md w-1/2 placeholder:text-gray-500 shadow-md'
 
             })
 
