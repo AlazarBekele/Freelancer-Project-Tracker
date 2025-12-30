@@ -17,3 +17,7 @@ __________________________________________
     -> Make Publish Page
     -> Add Form to Custom Inputs
     -> Create Page to Publish
+
+    /// 30-12-25
+
+    -> Make Post Page design

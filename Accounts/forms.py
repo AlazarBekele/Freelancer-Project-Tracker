@@ -141,14 +141,15 @@ class Publish_form (forms.ModelForm):
             'Discription' : forms.Textarea (attrs={
 
                 'class' : 'bg-white p-2 rounded-md w-2/5 placeholder:text-gray-500',
-                'placeholder' : 'border p-2 rounded-md w-full placeholder:text-green-400',
+                'placeholder' : 'Discribe your post',
                 'label' : ''
 
             }),
 
             'Publish_IMG' : forms.ClearableFileInput (attrs={
 
-                'class' : 'w-full'
+                'class' : 'bg-gray-100 p-2 rounded-md w-2/5 placeholder:text-gray-500',
+                'placeholder' : 'Upload Photo'
 
             })
 
