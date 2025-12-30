@@ -132,7 +132,7 @@ class Publish_form (forms.ModelForm):
 
             'Title' : forms.TextInput (attrs={
 
-                'class' : 'border p-2 rounded-md w-full placeholder:text-green-400',
+                'class' :  'p-2 rounded-md w-full placeholder:text-gray-500',
                 'placeholder' : 'Write The Title',
                 'label' : ''
 

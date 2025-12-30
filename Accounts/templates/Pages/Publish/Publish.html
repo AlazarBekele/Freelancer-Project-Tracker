@@ -8,18 +8,22 @@
 
 <body>
 
-    <div>
+    <div class="w-1/2">
 
-        <form method="post" enctype="multipart/form-data">
+        <div>
 
-            {% csrf_token %}
-            {{ Publish_Form_Context.Title }}
-            {{ Publish_Form_Context.Discription }}
-            {{ Publish_Form_Context.Publish_IMG }}
+            <form method="post" enctype="multipart/form-data">
 
-            <button type="submit" class="hover:scale-105 transition delay-150 duration-300 ease-in-out bg-emerald-500 text-white p-3 rounded-sm font-semibold" >Upload</button>
+                {% csrf_token %}
+                {{ Publish_Form_Context.Title }}
+                {{ Publish_Form_Context.Discription }}
+                {{ Publish_Form_Context.Publish_IMG }}
 
-        </form>
+                <button type="submit" class="hover:scale-105 transition delay-150 duration-300 ease-in-out bg-emerald-500 text-white p-3 rounded-sm font-semibold" >Upload</button>
+
+            </form>
+
+        </div>
 
     </div>
     
