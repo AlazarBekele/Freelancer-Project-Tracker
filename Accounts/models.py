@@ -103,10 +103,14 @@ class GoInto (models.Model):
 
 class Make_Publish_Post (models.Model):
 
+    defualt_path = [
+        'draft', 'Chioce Fields'
+    ]
+
     Title = models.CharField (max_length=100, null=False, blank=False)
     Discription = models.TextField (null=True, blank=True)
     Publish_IMG = models.ImageField (upload_to='UserPost/Published')
-    working_fields = models.CharField (choices=WORK_ON, null=True, blank=True)
+    working_fields = models.CharField (choices=WORK_ON, default='draft')
 
     # Count Like & collect Messages
     Rate = models.IntegerField ()
