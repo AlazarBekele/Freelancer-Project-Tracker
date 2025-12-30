@@ -132,7 +132,7 @@ class Publish_form (forms.ModelForm):
 
             'Title' : forms.TextInput (attrs={
 
-                'class' :  'p-2 rounded-md w-full placeholder:text-gray-500',
+                'class' :  'bg-white p-2 rounded-md w-2/5 placeholder:text-gray-500',
                 'placeholder' : 'Write The Title',
                 'label' : ''
 
@@ -140,6 +140,7 @@ class Publish_form (forms.ModelForm):
 
             'Discription' : forms.Textarea (attrs={
 
+                'class' : 'bg-white p-2 rounded-md w-2/5 placeholder:text-gray-500',
                 'placeholder' : 'border p-2 rounded-md w-full placeholder:text-green-400',
                 'label' : ''
 
