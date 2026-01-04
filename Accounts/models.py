@@ -113,7 +113,7 @@ class Make_Publish_Post (models.Model):
     ]
 
     # Profile 1 ──── many PostDatas
-    profile = models.ForeignKey (Profiles, on_delete=models.CASCADE, null=True, blank=True)
+    profile = models.ForeignKey (Profiles, on_delete=models.CASCADE)
 
     Title = models.CharField (max_length=100, null=False, blank=False)
     Discription = models.TextField (null=True, blank=True)

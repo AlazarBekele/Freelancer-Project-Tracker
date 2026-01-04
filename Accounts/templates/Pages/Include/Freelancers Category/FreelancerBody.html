@@ -1,4 +1,4 @@
-<div>
+<div class="overflow-auto">
 
     <div>
 
@@ -50,15 +50,41 @@
 
         </div>
         
-        <div class="w-5/6 h-25 bg-white m-5 flex justify-start items-start">
+        <div class="w-5/6 bg-white m-5 flex flex-col justify-start items-start">
 
             <h3 class="text-2xl font-semibold font-stretch-condensed p-5">FPT | Latest Posts</h3>
 
             {% for Displaying_Post in Displaying %}
 
-                <div>
+                <div class="p-4 flex flex-col">
 
-                    <p>{{ Displaying_Post.Title }}</p>
+                    <div>
+
+                        <img class="w-full" src="{{ Displaying_Post.Publish_IMG.url }}" alt="">
+
+                    </div>
+
+                    <div>
+
+                        <div>
+
+                            <img src="{{ Displaying_Post.profile.user_profile_img.url }}" alt="Profile Image">
+
+                            <div>
+
+                                <p>{{ Displaying_Post.profile.user.first_name }}</p>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <p>{{ Displaying_Post.Title }}</p>
+
+                        </div>
+
+                    </div>
                     
                 </div>
 
