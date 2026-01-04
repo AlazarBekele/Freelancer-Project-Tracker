@@ -54,15 +54,15 @@
 
             <h3 class="text-2xl font-semibold font-stretch-condensed p-5">FPT | Latest Posts</h3>
 
-            <div>
+            {% for Displaying_Post in Displaying %}
 
-                {% for Info in Info_Publisher %}
+                <div>
 
-                    {{ Info.Publisher.username }}
+                    <p>{{ Displaying_Post.Title }}</p>
+                    
+                </div>
 
-                {% endfor %}
-
-            </div>
+            {% endfor %}
 
         </div>
 

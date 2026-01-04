@@ -47,6 +47,11 @@ class Profiles (models.Model):
     follow_suggetion = models.ManyToManyField ("self", related_name="followed_by", symmetrical=False, blank=True, null=True)
     last_seen = models.DateTimeField (auto_now=True, blank=True, null=True)
 
+    # Post Container
+    Post_title = models.CharField (max_length=100, null=True, blank=True)
+    Post_discrition = models.TextField (null=True, blank=True)
+    Post_Image = models.ImageField (upload_to='Publish/Post/Image', null=True, blank=True)
+
     def is_online (self):
 
         if self.last_seen:
@@ -107,10 +112,13 @@ class Make_Publish_Post (models.Model):
         'draft', 'Chioce Fields'
     ]
 
+    # Profile 1 ──── many PostDatas
+    profile = models.ForeignKey (Profiles, on_delete=models.CASCADE, null=True, blank=True)
+
     Title = models.CharField (max_length=100, null=False, blank=False)
     Discription = models.TextField (null=True, blank=True)
-    Publish_IMG = models.ImageField (upload_to='UserPost/Published')
-    working_fields = models.CharField (choices=WORK_ON, default='draft')
+    Publish_IMG = models.ImageField (upload_to='UserPost/Published', null=True, blank=True)
+    working_fields = models.CharField (choices=WORK_ON, default='draft', null=True, blank=True)
 
     # Count Like & collect Messages
     Rate = models.IntegerField (null=True, blank=True)
@@ -119,5 +127,5 @@ class Make_Publish_Post (models.Model):
     # Created Date
     create_info = models.DateField (auto_created=True, auto_now_add=True, null=True, blank=True)
 
-    #Add Publisher Profile Info
-    Publisher = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return str(self.create_info)
