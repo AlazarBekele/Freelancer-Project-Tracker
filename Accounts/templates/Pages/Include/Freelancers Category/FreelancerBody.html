@@ -58,29 +58,73 @@
 
                 <div class="p-4 flex flex-col">
 
-                    <div>
+                    <div class="w-full h-125 flex justify-center items-center">
 
-                        <img class="w-full" src="{{ Displaying_Post.Publish_IMG.url }}" alt="">
+                        <img class="bg-cover" src="{{ Displaying_Post.Publish_IMG.url }}" alt="">
 
                     </div>
 
-                    <div>
+                    <div class="">
 
-                        <div>
-
-                            <img src="{{ Displaying_Post.profile.user_profile_img.url }}" alt="Profile Image">
+                        <!-- Profile info container -->
+                        <div class="flex justify-start items-center gap-2 p-4">
 
                             <div>
 
-                                <p>{{ Displaying_Post.profile.user.first_name }}</p>
+                                <img class="w-10 h-10 rounded-full object-cover" src="{{ Displaying_Post.profile.user_profile_img.url }}" alt="Profile Image">
+
+                            </div>
+
+                            <div>
+
+                                <div>
+
+                                    <p class="m-0 text-sm font-semibold">{{ Displaying_Post.profile.user.first_name }} {{ Displaying_Post.profile.user.last_name }}</p>
+
+                                </div>
+
+                                <p class="m-0 text-xs text-gray-500">@{{ Displaying_Post.profile.user.username }}</p>
+
+                            </div>
+
+                            <div class="flex justify-start items-center">
+
+                                <hr class="bg-Gray-700 rotate-90 w-10">
+
+                            </div>
+
+                            <div>
+
+                                <p class="text-xl">{{ Displaying_Post.Title }}</p>
+                                <p class="text-sm font-semibold">{{ Displaying_Post.profile.user.working_fields }}</p>
 
                             </div>
 
                         </div>
 
-                        <div>
+                        <!-- Discription Container -->
+                        <div class="w-5/6">
 
-                            <p>{{ Displaying_Post.Title }}</p>
+                            <p class="text-sm pl-4 font-extralight">{{ Displaying_Post.Discription }}</p>
+
+                        </div>
+
+                        <!-- Like & View Container -->
+                        <div class="w-5/6 p-4 flex justify-start items-center">
+
+                            <div class="w-20 flex justify-center items-center gap-2">
+
+                                <i class="fa-solid fa-heart text-2xl"></i>
+                                <p>34</p>
+
+                            </div>
+
+                            <div class="w-20 flex justify-center items-center gap-2">
+
+                                <i class="fa-solid fa-eye text-2xl"></i>
+                                <p>{{ View_Counter.view }}</p>
+
+                            </div>
 
                         </div>
 

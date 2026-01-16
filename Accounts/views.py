@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User as auth_user
+from django.shortcuts import get_object_or_404
 
 from .models import (
     Welcome,
@@ -96,7 +97,7 @@ def goto_pass (request):
 
 ## MAIN PAGES (Freelancer's & Client's)
 @login_required (login_url='/login/')
-def freelancer_page (request, id):
+def freelancer_page (request, id, username):
 
     # Start Here Follow
     follow_info = Profiles.objects.exclude(user=request.user)
@@ -111,33 +112,37 @@ def freelancer_page (request, id):
 
     # -> Start Displaying the Post form Latest - Oldest
     Displaying = Make_Publish_Post.objects.order_by('-create_info')
+
     # Get Publisher Profile Data
-    
     profile = request.user.profiles
 
     if request.method == 'POST':
 
         forms_note = noteform (request.POST, request.FILES, instance=profile)
         if forms_note.is_valid ():
-
             forms_note.save()
-        
-    else:
 
+    else:
         forms_note = noteform (instance=profile)
 
     # Load profile Picture
     if request.user.id == id:
-
         profile_img = Profiles.objects.get (id=id)
 
     elif request.user.id != id:
-
         return redirect ('Login')
     
     else:
-
         return redirect ('Index')
+    
+    # Handel the Like & View
+    post = get_object_or_404 (Make_Publish_Post)
+    session_key = f'viewed_post_{post.id}'
+
+    if not request.session.get (session_key):
+        post.view += 1
+        post.save()
+        request.session[session_key] = True
 
     user = request.user
 
@@ -149,16 +154,25 @@ def freelancer_page (request, id):
         'images' : img,
         'forms_note' : forms_note,
         'profile' : profile,
-        'Displaying' : Displaying
+        'Displaying' : Displaying,
+        'View_Counter' : post
     }
 
     if request.user.is_authenticated:
-
         return render (request, 'Pages/Freelancers/freelancer_page.html', context=context)
     
     else:
-
         return redirect ('Index')
+
+
+def logout_session (request):
+    
+    #logout Handle
+    if request.method == 'POST':
+        logout (request)
+        return redirect ('Index')
+    
+    return render (request, 'Pages/Include/Freelancers Category/navbar.html')
 
 
 @login_required (login_url='/login/')

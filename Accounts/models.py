@@ -47,11 +47,6 @@ class Profiles (models.Model):
     follow_suggetion = models.ManyToManyField ("self", related_name="followed_by", symmetrical=False, blank=True, null=True)
     last_seen = models.DateTimeField (auto_now=True, blank=True, null=True)
 
-    # Post Container
-    Post_title = models.CharField (max_length=100, null=True, blank=True)
-    Post_discrition = models.TextField (null=True, blank=True)
-    Post_Image = models.ImageField (upload_to='Publish/Post/Image', null=True, blank=True)
-
     def is_online (self):
 
         if self.last_seen:
@@ -127,5 +122,18 @@ class Make_Publish_Post (models.Model):
     # Created Date
     create_info = models.DateField (auto_created=True, auto_now_add=True, null=True, blank=True)
 
+    # Contain View per/session
+    view = models.PositiveIntegerField (default=0, null=True, blank=True)
+
     def __str__(self):
-        return str(self.create_info)
+        return f'Name: {self.profile.user.first_name}___ ID: {self.id} ___ Created: {self.create_info}'
+    
+
+class Like (models.Model):
+
+    user = models.ForeignKey (User, on_delete=models.CASCADE)
+    post = models.ForeignKey (Make_Publish_Post, on_delete=models.CASCADE)
+    created_at = models.DateTimeField (auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'post')

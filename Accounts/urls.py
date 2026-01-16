@@ -6,7 +6,8 @@ from .views import (
     goto_pass,
     freelancer_page,
     crud_info,
-    publish_page_both
+    publish_page_both,
+    logout_session
 )
 
 from django.conf import settings
@@ -16,9 +17,10 @@ urlpatterns = [
     path ('', index, name='Index'),
     path ('login/', loginPage, name='Login'),
     path ('gotopass/', goto_pass, name='Pass'),
-    path ('FTP.com.admin/<int:id>', freelancer_page, name='Freelancers'),
+    path ('FTP.com.admin/<int:id>/<str:username>/', freelancer_page, name='Freelancers'),
     path ('Update/<str:username>', crud_info, name='update'),
-    path ('publish/<str:username>', publish_page_both, name='PublishPage')
+    path ('publish/<str:username>', publish_page_both, name='PublishPage'),
+    path ('Logout/', logout_session, name='Logout')
 ]
 
 if settings.DEBUG:

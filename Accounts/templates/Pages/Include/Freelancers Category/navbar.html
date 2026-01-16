@@ -60,17 +60,34 @@
 
         </div>
 
-        <div class="flex justify-start items-center w-80">
+        <div class="flex justify-start items-center w-160 gap-8">
 
-            <div>
+            <div class="flex justify-start items-center">
 
-                <hr class="border-s-4 w-13 rotate-90">
+                <div>
+
+                    <hr class="border-s-4 w-13 rotate-90">
+
+                </div>
+
+                <div>
+
+                    <button class="roboto_condensed_black bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 pt-2 pb-2 pl-5 pr-5 rounded-lg text-white cursor-progress">Comming Soon</button>
+
+                </div>
 
             </div>
-
+            
             <div>
 
-                <button class="roboto_condensed_black bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 pt-2 pb-2 pl-5 pr-5 rounded-lg text-white cursor-progress">Comming Soon</button>
+                <form method="post">
+
+                    <a href="{% url 'Logout' %}">
+
+                        <button class="roboto_condensed_black pt-2 pb-2 pl-5 pr-5 rounded-lg hover:scale-110 transition duration-300 cursor-pointer">Logout</button>
+
+                    </a>
+                </form>
 
             </div>
 
