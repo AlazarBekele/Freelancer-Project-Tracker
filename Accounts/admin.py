@@ -7,7 +7,8 @@ from .models import (
     Profiles,
     User,
     Make_Publish_Post,
-    Account_Post_Category
+    Account_Post_Category,
+    Publish_Page_Model
 )
 
 from django.contrib.auth.admin import UserAdmin
@@ -37,7 +38,9 @@ admin.site.register (ProfilePicture)
 admin.site.register (Profiles)
 admin.site.register (Make_Publish_Post)
 admin.site.register (Account_Post_Category)
+admin.site.register (Publish_Page_Model)
 
 # User Add Field
 
 admin.site.register (User, CustomeAdmin)
+admin.site.unregister (Make_Publish_Post)

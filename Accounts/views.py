@@ -7,7 +7,8 @@ from .models import (
     GoInto,
     Profiles,
     Follow,
-    Make_Publish_Post
+    Make_Publish_Post,
+    Publish_Page_Model
 )
 
 from .forms import (
@@ -111,7 +112,7 @@ def freelancer_page (request, id, username):
     Follow.objects.get_or_create (followers=request.user)
 
     # -> Start Displaying the Post form Latest - Oldest
-    Displaying = Make_Publish_Post.objects.order_by('-create_info')
+    Displaying = Publish_Page_Model.objects.order_by('-create_info')
 
     # Get Publisher Profile Data
     profile = request.user.profiles
@@ -136,7 +137,7 @@ def freelancer_page (request, id, username):
         return redirect ('Index')
     
     # Handel the Like & View
-    post = get_object_or_404 (Make_Publish_Post)
+    post = get_object_or_404 (Publish_Page_Model, id=id)
     session_key = f'viewed_post_{post.id}'
 
     if not request.session.get (session_key):

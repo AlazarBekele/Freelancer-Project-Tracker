@@ -129,6 +129,33 @@ class Make_Publish_Post (models.Model):
         return f'Name: {self.profile.user.first_name}___ ID: {self.id} ___ Created: {self.create_info}'
     
 
+class Publish_Page_Model (models.Model):
+
+    defualt_path = [
+        'draft', 'Chioce Fields'
+    ]
+
+    # Profile 1 ──── many PostDatas
+    profile = models.ForeignKey (Profiles, on_delete=models.CASCADE)
+
+    Title = models.CharField (max_length=100, null=False, blank=False)
+    Discription = models.TextField (null=True, blank=True)
+    Publish_IMG = models.ImageField (upload_to='UserPost/Published', null=True, blank=True)
+    working_fields = models.CharField (choices=WORK_ON, default='draft', null=True, blank=True)
+
+    # Count Like & collect Messages
+    Rate = models.IntegerField (null=True, blank=True)
+    Messages = models.CharField (max_length=255, null=True, blank=True)
+
+    # Created Date
+    create_info = models.DateField (auto_created=True, auto_now_add=True, null=True, blank=True)
+
+    # Contain View per/session
+    view = models.PositiveIntegerField (default=0, null=True, blank=True)
+
+    def __str__(self):
+        return f'Name: {self.profile.user.first_name}___ ID: {self.id} ___ Created: {self.create_info}'
+
 class Like (models.Model):
 
     user = models.ForeignKey (User, on_delete=models.CASCADE)

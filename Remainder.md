@@ -21,3 +21,12 @@
 ![alt text](<Screenshot 2026-01-16 at 7.24.08 PM.png>)
 
 ![alt text](<Screenshot 2026-01-16 at 7.24.22 PM.png>)
+
+##
+### Solution - Create New Model
+- Call Publish_Page_Model
+- Replace with previous data
+
+### Create New Def (Function)
+- To Handle the Increment
+- Save into DB
