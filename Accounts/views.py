@@ -18,7 +18,7 @@ from .forms import (
     Publish_form
 )
 
-from django.shortcuts import get_object_or_404
+from django.db.models import F
 
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -117,6 +117,19 @@ def freelancer_page (request, id, username):
     # Get Publisher Profile Data
     profile = request.user.profiles
 
+    post_id = request.GET.get ('post_id')
+
+    if post_id:
+
+        post = get_object_or_404 (Publish_Page_Model, id=post_id)
+        session_key = f'Viewed_post{post.id}'
+
+        if not request.session (session_key):
+            post.increment_views()
+            request.session[session_key] = True
+
+        post.refresh_from_db()
+
     if request.method == 'POST':
 
         forms_note = noteform (request.POST, request.FILES, instance=profile)
@@ -135,18 +148,8 @@ def freelancer_page (request, id, username):
     
     else:
         return redirect ('Index')
-    
-    # Handel the Like & View
-    post = get_object_or_404 (Publish_Page_Model, id=id)
-    session_key = f'viewed_post_{post.id}'
-
-    if not request.session.get (session_key):
-        post.view += 1
-        post.save()
-        request.session[session_key] = True
 
     user = request.user
-
     context = {
         'user' : user,
         'profile_img' : profile_img,
@@ -155,8 +158,7 @@ def freelancer_page (request, id, username):
         'images' : img,
         'forms_note' : forms_note,
         'profile' : profile,
-        'Displaying' : Displaying,
-        'View_Counter' : post
+        'Displaying' : Displaying
     }
 
     if request.user.is_authenticated:
@@ -164,6 +166,21 @@ def freelancer_page (request, id, username):
     
     else:
         return redirect ('Index')
+    
+
+# def post_detail (request, post_id):
+
+#     post = get_object_or_404 (Publish_Page_Model, id=post_id)
+    
+#     session_key = f'viewed_post_{post.id}'
+
+#     if not request.session.get(session_key):
+#         Publish_Page_Model.objects.filter (id=post_id).update (
+#             views=F('View') + 1
+#         )
+
+#         request.session[session_key] = True
+#         post.refresh_from_db()
 
 
 def logout_session (request):

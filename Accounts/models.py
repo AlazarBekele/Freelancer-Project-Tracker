@@ -153,6 +153,10 @@ class Publish_Page_Model (models.Model):
     # Contain View per/session
     view = models.PositiveIntegerField (default=0, null=True, blank=True)
 
+    def increment_views (self):
+
+        Publish_Page_Model.objects.filter(id=id).update (view =('view') + 1)
+
     def __str__(self):
         return f'Name: {self.profile.user.first_name}___ ID: {self.id} ___ Created: {self.create_info}'
 
