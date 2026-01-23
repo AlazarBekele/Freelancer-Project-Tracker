@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User as auth_user
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import get_user_model
 
 from .models import (
     Welcome,
     GoInto,
     Profiles,
-    Follow,
+    Follow_counter,
     Publish_Page_Model
 )
 
@@ -93,6 +94,26 @@ def goto_pass (request):
 
     return render (request, 'Include/Goto/pass.html', context=context)
 
+# handel Follow unFollow
+def follow_toggle (request, username):
+
+    User = get_user_model()
+    target_user = get_object_or_404 (User, username)
+
+    if target_user == request.user:
+        return redirect ('Pass', username=username)
+    
+    follow, create = Follow_counter.objects.get_or_create (
+        follower = request.user,
+        following = target_user
+    )
+
+    if not create:
+        follow.delete()
+
+    return redirect ('Freelancers', username=username)
+
+
 ## MAIN PAGES (Freelancer's & Client's)
 @login_required (login_url='/login/')
 def freelancer_page (request, id, username):
@@ -100,14 +121,11 @@ def freelancer_page (request, id, username):
     profile = request.user.profile
 
     # Start Here Follow , --> Give All profile except mine
-    follow_info = Profiles.objects.exclude(user=request.user)
+    follow_info = Follow_counter.objects.all()
 
     # Followers Id
     followers_id = profile.follow_suggetion.values_list('id', flat=True)
     img = Profiles.objects.filter(id__in=followers_id).exclude (user=request.user)
-
-    # Followers Counter
-    Follow.objects.get_or_create (followers=request.user)
 
     # -> Start Displaying the Post form Latest - Oldest
     Displaying = Publish_Page_Model.objects.order_by('-create_info')
@@ -163,21 +181,6 @@ def freelancer_page (request, id, username):
     
     else:
         return redirect ('Index')
-    
-
-# def post_detail (request, post_id):
-
-#     post = get_object_or_404 (Publish_Page_Model, id=post_id)
-    
-#     session_key = f'viewed_post_{post.id}'
-
-#     if not request.session.get(session_key):
-#         Publish_Page_Model.objects.filter (id=post_id).update (
-#             views=F('View') + 1
-#         )
-
-#         request.session[session_key] = True
-#         post.refresh_from_db()
 
 
 def logout_session (request):

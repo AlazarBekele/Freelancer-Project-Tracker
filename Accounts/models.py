@@ -59,11 +59,20 @@ class Profiles (models.Model):
         return self.user.username
     
     note_forms = models.CharField (max_length=100, null=True, blank=True)
-    
 
-class Follow (models.Model):
 
-    followers = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="followers")
+class Follow_counter (models.Model):
+
+    follower = models.ForeignKey (settings.AUTH_USER_MODEL, related_name='following', on_delete=models.CASCADE)
+    following = models.ForeignKey (settings.AUTH_USER_MODEL, related_name='follower', on_delete=models.CASCADE)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    class Meta:
+        unique_together = ('follower', 'following')
+
+    def __str__(self):
+        return f'{self.follower} {self.following}'
     
 
 class ProfilePicture (models.Model):

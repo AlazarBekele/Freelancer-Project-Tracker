@@ -8,7 +8,8 @@ from .models import (
     User,
     Make_Publish_Post,
     Account_Post_Category,
-    Publish_Page_Model
+    Publish_Page_Model,
+    Follow_counter
 )
 
 from django.contrib.auth.admin import UserAdmin
@@ -39,6 +40,7 @@ admin.site.register (Profiles)
 admin.site.register (Make_Publish_Post)
 admin.site.register (Account_Post_Category)
 admin.site.register (Publish_Page_Model)
+admin.site.register (Follow_counter)
 
 # User Add Field
 
