@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from .models import (
     Profiles,
-    Make_Publish_Post
+    Publish_Page_Model
 )
 
 User = get_user_model()
@@ -125,7 +125,7 @@ class noteform (forms.ModelForm):
 class Publish_form (forms.ModelForm):
 
     class Meta:
-        model = Make_Publish_Post
+        model = Publish_Page_Model
         fields = ['Title', 'Discription', 'Publish_IMG', 'working_fields']
 
         widgets = {

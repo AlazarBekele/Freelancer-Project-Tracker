@@ -40,7 +40,7 @@ class User(AbstractUser):
 
 class Profiles (models.Model):
 
-    user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField (settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
     user_profile_img = models.ImageField (upload_to='profile_pic/', null=True, blank=True)
 
     # Follow People

@@ -7,7 +7,6 @@ from .models import (
     GoInto,
     Profiles,
     Follow,
-    Make_Publish_Post,
     Publish_Page_Model
 )
 
@@ -51,11 +50,9 @@ def index (request):
 
     # If the user is auth... no login again
     if request.user.is_authenticated:
-
         return redirect ('Pass')
     
     else:
-
         return render (request, 'index.html', context=context)
 
 
@@ -100,12 +97,13 @@ def goto_pass (request):
 @login_required (login_url='/login/')
 def freelancer_page (request, id, username):
 
-    # Start Here Follow
+    profile = request.user.profile
+
+    # Start Here Follow , --> Give All profile except mine
     follow_info = Profiles.objects.exclude(user=request.user)
 
     # Followers Id
-    followers_Profile = Profiles.objects.get(user=request.user)
-    followers_id = followers_Profile.follow_suggetion.values_list('id', flat=True)
+    followers_id = profile.follow_suggetion.values_list('id', flat=True)
     img = Profiles.objects.filter(id__in=followers_id).exclude (user=request.user)
 
     # Followers Counter
@@ -115,12 +113,10 @@ def freelancer_page (request, id, username):
     Displaying = Publish_Page_Model.objects.order_by('-create_info')
 
     # Get Publisher Profile Data
-    profile = request.user.profiles
-
     post_id = request.GET.get ('post_id')
 
+    # View Increament IF
     if post_id:
-
         post = get_object_or_404 (Publish_Page_Model, id=post_id)
         session_key = f'Viewed_post{post.id}'
 
@@ -130,14 +126,15 @@ def freelancer_page (request, id, username):
 
         post.refresh_from_db()
 
+    # Share note For Site
     if request.method == 'POST':
-
         forms_note = noteform (request.POST, request.FILES, instance=profile)
         if forms_note.is_valid ():
             forms_note.save()
 
     else:
         forms_note = noteform (instance=profile)
+
 
     # Load profile Picture
     if request.user.id == id:
@@ -209,12 +206,15 @@ def crud_info (request, username):
 def publish_page_both (request, username):
 
     PublishForm = Publish_form (request.POST, request.FILES)
+    profile = Profiles.objects.get(user = request.user)
 
     if request.method == 'POST':
 
         if PublishForm.is_valid():
 
-            PublishForm.save()
+            obj = PublishForm.save(commit=False)
+            obj.profile = profile
+            obj.save()
             return redirect ('Pass')
     
     context = {
