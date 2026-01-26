@@ -129,7 +129,7 @@ def freelancer_page (request, id, username):
 
     # -> Start Displaying the Post form Latest - Oldest
     Displaying = Publish_Page_Model.objects.order_by('-create_info')
-
+    ReversData = Publish_Page_Model.objects.last()[:3]
     # Get Publisher Profile Data
     post_id = request.GET.get ('post_id')
 
@@ -173,7 +173,8 @@ def freelancer_page (request, id, username):
         'images' : img,
         'forms_note' : forms_note,
         'profile' : profile,
-        'Displaying' : Displaying
+        'Displaying' : Displaying,
+        'ReversData' : ReversData
     }
 
     if request.user.is_authenticated:
