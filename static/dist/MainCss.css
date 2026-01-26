@@ -383,6 +383,9 @@
   .w-250 {
     width: calc(var(--spacing) * 250);
   }
+  .w-400 {
+    width: calc(var(--spacing) * 400);
+  }
   .w-full {
     width: 100%;
   }
@@ -423,8 +426,26 @@
   .grid-cols-\[1fr_200px_1fr\] {
     grid-template-columns: 1fr 200px 1fr;
   }
+  .grid-cols-\[350px_900px_1fr\] {
+    grid-template-columns: 350px 900px 1fr;
+  }
+  .grid-cols-\[350px_900px_300px\] {
+    grid-template-columns: 350px 900px 300px;
+  }
+  .grid-cols-\[350px_1000px_300px\] {
+    grid-template-columns: 350px 1000px 300px;
+  }
   .grid-cols-\[400px_1fr_300px\] {
     grid-template-columns: 400px 1fr 300px;
+  }
+  .grid-cols-\[400px_700px_300px\] {
+    grid-template-columns: 400px 700px 300px;
+  }
+  .grid-cols-\[400px_1000px_300px\] {
+    grid-template-columns: 400px 1000px 300px;
+  }
+  .grid-cols-\[400px_1200px_300px\] {
+    grid-template-columns: 400px 1200px 300px;
   }
   .grid-rows-2 {
     grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -498,6 +519,9 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .overflow-x-hidden {
+    overflow-x: hidden;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
