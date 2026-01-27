@@ -1,8 +1,66 @@
+{% load static %}
 <div>
 
     <div>
 
-        <p class="roboto_condensed_Semilight">Latest post's</p>
+        <div class="pb-4">
+
+            <div class="w-full p-4 bg-emerald-500 text-white ">
+
+                <p class="roboto_condensed_bold">Upgrade to FPT Premium and unlock powerful tools</p>
+                <p class="font-light text-xs">Unlimited Projects, Advanced Analytics, Priority Visibility, Smart Filters & Search, Profile Boost, Saved & Bookmarked Projects</p>
+
+            </div>
+
+        </div>
+
+        <p class="roboto_condensed_Semilight">Apply Jobs</p>
+
+        <div class="m-2">
+
+            <img class="w-full rounded-md" src="{% static 'Logo/Untitled-2.png' %}" alt="">
+
+        </div>
+
+        <div>
+
+            {% for ReversDatas in ReversData %}
+
+                <div class="flex justify-start items-center">
+
+                    {% if ReversDatas.profile.user_profile_img %}
+
+                        <img class="w-7 h-7 rounded-full object-cover" src="{{ReversDatas.profile.user_profile_img.url}}" alt="IMG">
+
+                    {% endif %}
+
+                    <div class="p-2">
+
+                        <p class="text-sm font-extralight text-gray-500">{{ ReversDatas.Title }}</p>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="flex justify-center items-center p-4">
+
+            <div class="roboto_condensed_bold flex justify-between items-center rounded-md p-2 w-60 bg-linear-65 from-purple-500 to-pink-500 text-white">
+                <p>Install our APP</p>
+                <img class="w-10" src="{% static 'Logo/Untitled-1.png' %}" alt="">
+            </div>
+
+        </div>
+
+        <div class="flex flex-col justify-center items-center">
+
+            <p class="text-xl text-gray-600">FPT | Freelancer Project Tracker</p>
+            <p class="text-xs text-gray-400">@freelancerproject@gmail.com</p>
+
+        </div>
 
     </div>
 
